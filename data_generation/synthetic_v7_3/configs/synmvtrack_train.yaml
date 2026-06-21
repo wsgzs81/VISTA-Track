@@ -1,0 +1,48 @@
+# SynMVTrack training config for VISTA-Track
+#
+# Add this to your main training config or use as-is.
+# The dataloader reads from the SynMVTrack output directory.
+
+dataset:
+  name: synmvtrack
+  root: /path/to/SynMVTrack/output/SynMVTrack   # ← adjust to your output dir
+  split: train
+  max_views: 4            # pad/truncate to 4 views
+  image_size: [640, 480]  # (W, H)
+  frame_sample: all       # 'all' | 'stride_N' | 'random'
+  num_template: 1
+  num_search: 1
+
+dataloader:
+  batch_size: 4
+  num_workers: 4
+  shuffle: true
+  collate_fn: synmvtrack_collate   # custom collate for variable-length BEV
+
+# --- Registration in a tracker training project ---
+#
+# In your dataset factory (e.g., lib/train/dataset/__init__.py or
+# the config-based loader), add:
+#
+#   from lib.train.dataset.synmvtrack import SynMVTrackDataset, synmvtrack_collate
+#
+#   DATASET_REGISTRY = {
+#       ...
+#       "synmvtrack": SynMVTrackDataset,
+#   }
+#
+#   COLLATE_REGISTRY = {
+#       ...
+#       "synmvtrack": synmvtrack_collate,
+#   }
+#
+# Or if the project uses a yaml-based factory:
+#
+#   datasets:
+#     - name: synmvtrack
+#       type: SynMVTrackDataset
+#       params:
+#         root: /path/to/output/SynMVTrack
+#         split: train
+#         max_views: 4
+#         image_size: [640, 480]

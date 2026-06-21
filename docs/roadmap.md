@@ -2,78 +2,57 @@
 
 ## Phase 1: Strong Single-View Foundation
 
-Goal: build a stable tracker that is competitive before multi-view fusion.
+Goal: build a stable first-stage tracker.
 
 Tasks:
 
-- Finish `stable_real_qclean` training.
-- Evaluate epoch 5, 10, and 15 checkpoints.
-- Compare against official MITracker weights and clean baselines.
-- Track AO, AUC, success, precision, and normalized precision where supported.
-- Diagnose failure cases: occlusion, scale change, distractors, color shift, fast motion.
-
-Expected outcome:
-
-- A reliable first-stage checkpoint that can serve as the single-view expert for VISTA-Track.
+- Finish the current real-data query-clean training run.
+- Evaluate checkpoints at epochs 5, 10, and 15.
+- Compare with clean reproduced baselines.
+- Record AO, AUC, success, precision, and normalized precision where available.
+- Analyze failures under occlusion, distractors, fast motion, scale change, and appearance shift.
 
 ## Phase 2: View-Invariant Association
 
-Goal: associate the same target across views without requiring strict calibration.
+Goal: match the same target across views without relying on strict calibration.
 
 Candidate directions:
 
-- Appearance-token matching with DINO-style features.
-- Temporal consistency constraints across views.
-- Confidence-weighted cross-view evidence aggregation.
+- Cross-view target-token attention.
+- Appearance and temporal consistency matching.
+- Confidence-weighted view reliability.
 - Dynamic memory shared across views.
 - Pseudo-correspondence mining from synchronized videos.
 
-Expected outcome:
+## Phase 3: Multi-View Fusion
 
-- A new cross-view association module that can be trained and ablated independently.
-
-## Phase 3: Multi-View Fusion Tracker
-
-Goal: fuse per-view evidence into a robust target estimate.
+Goal: fuse per-view evidence into a more robust target state.
 
 Candidate directions:
 
-- Cross-view attention over target tokens.
-- Reliability-aware view weighting.
-- Occlusion-aware view dropout training.
-- Geometry-free fusion first, optional weak-calibration fusion later.
-
-Expected outcome:
-
-- VISTA-Track multi-view model with measurable gains over single-view and MITracker-style baselines.
+- Reliability-aware cross-view fusion.
+- Occlusion-aware view dropout.
+- Geometry-light association first, optional weak geometry later.
+- Training losses that preserve single-view stability while improving multi-view consistency.
 
 ## Phase 4: Data Engine
 
-Goal: produce or curate data that improves real-world generalization.
+Goal: generate or curate data that improves real-world tracking.
 
 Candidate directions:
 
-- High-quality UE5 scenes with realistic materials, lighting, occlusion, and multi-camera synchronization.
-- Real video mining with pseudo labels from strong single-view trackers.
-- World-model generated data only if it passes realism and tracking-label quality checks.
-- Domain randomization that preserves target identity across views.
+- UE5 scenes with realistic materials, lighting, occlusion, and motion.
+- Multi-camera synchronized rendering with consistent target identity.
+- Real video pseudo-label mining.
+- Quality filters for box tightness, visibility, identity consistency, and motion diversity.
 
-Expected outcome:
+## Phase 5: Paper-Ready Package
 
-- A training dataset that improves validation/test metrics instead of only looking visually impressive.
-
-## Phase 5: Paper-Ready Evaluation
-
-Goal: prepare a credible AAAI/CVPR-style experimental package.
+Goal: prepare credible conference-level evidence.
 
 Tasks:
 
-- Reproduce MITracker baseline metrics.
-- Add modern tracker baselines.
-- Run ablations for each proposed component.
-- Report gains on real test data, not only synthetic data.
-- Prepare qualitative visualizations with failure/success cases.
-
-Expected outcome:
-
-- A defensible SOTA claim or a clear gap analysis for the next iteration.
+- Reproduce public baselines.
+- Add modern single-view and multi-view comparisons.
+- Run ablations for query-clean training, dynamic memory, and cross-view fusion.
+- Show real-data gains, not only synthetic-data improvements.

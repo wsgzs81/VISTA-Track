@@ -1,0 +1,348 @@
+dataset:
+  fps: 30
+  frames_per_sequence: 300
+  name: MVTrackSynth-Realistic-v1
+  num_cameras_max: 6
+  num_cameras_min: 4
+  num_sequences: 10
+  resolution:
+    height: 720
+    width: 1280
+  seed: 20260615
+  version: '1.0'
+motion:
+  default_type: physics_impulse
+  impulse_force_range:
+  - 0.5
+  - 5.0
+  trajectory_radius_m: 2.0
+occluders:
+  categories:
+  - mesh: builtin_cube
+    name: wall_segment
+    placement: between_camera_and_target
+    scale_range_m:
+    - 0.5
+    - 3.0
+  - mesh: builtin_cylinder
+    name: pillar
+    placement: random_near_target
+    scale_range_m:
+    - 0.2
+    - 0.8
+  - mesh: builtin_cube
+    name: box_obstacle
+    placement: random_in_scene
+    scale_range_m:
+    - 0.3
+    - 1.5
+  count_range:
+  - 2
+  - 6
+  enabled: true
+output:
+  annotation_format: json
+  depth_format: png
+  image_format: png
+  mask_format: png
+  root: tools/output
+  shard_size_sequences: 50
+physics:
+  gravity: -9.81
+  max_settlement_attempts: 5
+  settlement_angular_vel_threshold: 2.0
+  settlement_linear_vel_threshold: 0.02
+  settlement_time_s: 3.0
+rendering:
+  engine: ue5_vulkan
+  environment:
+    add_background_walls: true
+    fog_density: 0.02
+    ground_color:
+    - 0.4
+    - 0.4
+    - 0.4
+    sky_intensity: 1.0
+    sun_color:
+    - 1.0
+    - 0.95
+    - 0.85
+    sun_intensity: 10.0
+  use_xvfb: true
+split:
+  split_by_asset: true
+  test: 0.1
+  train: 0.8
+  val: 0.1
+targets:
+  categories:
+  - license: CC0
+    mesh: tools/cache/polyhaven/painted_wooden_table/model.fbx
+    mesh_format: fbx
+    motion_type: physics_static
+    name: painted_wooden_table
+    scale_range_m:
+    - 0.1
+    - 0.8
+    source: polyhaven
+  - license: CC0
+    mesh: tools/cache/polyhaven/round_wooden_table_01/model.fbx
+    mesh_format: fbx
+    motion_type: physics_static
+    name: round_wooden_table_01
+    scale_range_m:
+    - 0.1
+    - 0.8
+    source: polyhaven
+  - license: CC0
+    mesh: tools/cache/polyhaven/chinese_stool/model.fbx
+    mesh_format: fbx
+    motion_type: physics_static
+    name: chinese_stool
+    scale_range_m:
+    - 0.1
+    - 0.8
+    source: polyhaven
+  - license: CC0
+    mesh: tools/cache/polyhaven/coffee_table_round_01/model.fbx
+    mesh_format: fbx
+    motion_type: physics_static
+    name: coffee_table_round_01
+    scale_range_m:
+    - 0.1
+    - 0.8
+    source: polyhaven
+  - license: CC0
+    mesh: tools/cache/polyhaven/small_wooden_table_01/model.fbx
+    mesh_format: fbx
+    motion_type: physics_static
+    name: small_wooden_table_01
+    scale_range_m:
+    - 0.1
+    - 0.8
+    source: polyhaven
+  - license: CC0
+    mesh: tools/cache/polyhaven/wooden_picnic_table/model.fbx
+    mesh_format: fbx
+    motion_type: physics_static
+    name: wooden_picnic_table
+    scale_range_m:
+    - 0.1
+    - 0.8
+    source: polyhaven
+  - license: CC0
+    mesh: tools/cache/polyhaven/painted_wooden_cabinet_02/model.fbx
+    mesh_format: fbx
+    motion_type: physics_static
+    name: painted_wooden_cabinet_02
+    scale_range_m:
+    - 0.1
+    - 0.8
+    source: polyhaven
+  - license: CC0
+    mesh: tools/cache/polyhaven/modern_wooden_cabinet/model.fbx
+    mesh_format: fbx
+    motion_type: physics_static
+    name: modern_wooden_cabinet
+    scale_range_m:
+    - 0.1
+    - 0.8
+    source: polyhaven
+  - license: CC0
+    mesh: tools/cache/polyhaven/BarberShopChair_01/model.fbx
+    mesh_format: fbx
+    motion_type: physics_static
+    name: BarberShopChair_01
+    scale_range_m:
+    - 0.1
+    - 0.8
+    source: polyhaven
+  - license: CC0
+    mesh: tools/cache/polyhaven/Sofa_01/model.fbx
+    mesh_format: fbx
+    motion_type: physics_static
+    name: Sofa_01
+    scale_range_m:
+    - 0.1
+    - 0.8
+    source: polyhaven
+  - license: CC0
+    mesh: tools/cache/polyhaven/gallinera_chair/model.fbx
+    mesh_format: fbx
+    motion_type: physics_static
+    name: gallinera_chair
+    scale_range_m:
+    - 0.1
+    - 0.8
+    source: polyhaven
+  - license: CC0
+    mesh: tools/cache/polyhaven/chinese_commode/model.fbx
+    mesh_format: fbx
+    motion_type: physics_static
+    name: chinese_commode
+    scale_range_m:
+    - 0.1
+    - 0.8
+    source: polyhaven
+  - license: CC0
+    mesh: tools/cache/polyhaven/gothic_coffee_table/model.fbx
+    mesh_format: fbx
+    motion_type: physics_static
+    name: gothic_coffee_table
+    scale_range_m:
+    - 0.1
+    - 0.8
+    source: polyhaven
+  - license: CC0
+    mesh: tools/cache/polyhaven/painted_wooden_bench/model.fbx
+    mesh_format: fbx
+    motion_type: physics_static
+    name: painted_wooden_bench
+    scale_range_m:
+    - 0.1
+    - 0.8
+    source: polyhaven
+  - license: CC0
+    mesh: tools/cache/polyhaven/modern_arm_chair_01/model.fbx
+    mesh_format: fbx
+    motion_type: physics_static
+    name: modern_arm_chair_01
+    scale_range_m:
+    - 0.1
+    - 0.8
+    source: polyhaven
+  - license: CC0
+    mesh: tools/cache/polyhaven/WoodenTable_03/model.fbx
+    mesh_format: fbx
+    motion_type: physics_static
+    name: WoodenTable_03
+    scale_range_m:
+    - 0.1
+    - 0.8
+    source: polyhaven
+  - license: CC0
+    mesh: tools/cache/polyhaven/sofa_03/model.fbx
+    mesh_format: fbx
+    motion_type: physics_static
+    name: sofa_03
+    scale_range_m:
+    - 0.1
+    - 0.8
+    source: polyhaven
+  - license: CC0
+    mesh: tools/cache/polyhaven/folding_wooden_stool/model.fbx
+    mesh_format: fbx
+    motion_type: physics_static
+    name: folding_wooden_stool
+    scale_range_m:
+    - 0.1
+    - 0.8
+    source: polyhaven
+  - license: CC0
+    mesh: tools/cache/polyhaven/GreenChair_01/model.fbx
+    mesh_format: fbx
+    motion_type: physics_static
+    name: GreenChair_01
+    scale_range_m:
+    - 0.1
+    - 0.8
+    source: polyhaven
+  - license: CC0
+    mesh: tools/cache/polyhaven/GothicCommode_01/model.fbx
+    mesh_format: fbx
+    motion_type: physics_static
+    name: GothicCommode_01
+    scale_range_m:
+    - 0.1
+    - 0.8
+    source: polyhaven
+  - license: CC0
+    mesh: tools/cache/polyhaven/mid_century_lounge_chair/model.fbx
+    mesh_format: fbx
+    motion_type: physics_static
+    name: mid_century_lounge_chair
+    scale_range_m:
+    - 0.1
+    - 0.8
+    source: polyhaven
+  - license: CC0
+    mesh: tools/cache/polyhaven/painted_wooden_chair_01/model.fbx
+    mesh_format: fbx
+    motion_type: physics_static
+    name: painted_wooden_chair_01
+    scale_range_m:
+    - 0.1
+    - 0.8
+    source: polyhaven
+  - license: CC0
+    mesh: tools/cache/polyhaven/painted_wooden_stool/model.fbx
+    mesh_format: fbx
+    motion_type: physics_static
+    name: painted_wooden_stool
+    scale_range_m:
+    - 0.1
+    - 0.8
+    source: polyhaven
+  - license: CC0
+    mesh: tools/cache/polyhaven/food_pomegranate_01/model.fbx
+    mesh_format: fbx
+    motion_type: physics_impulse
+    name: food_pomegranate_01
+    scale_range_m:
+    - 0.1
+    - 0.8
+    source: polyhaven
+  - license: CC0
+    mesh: tools/cache/polyhaven/hamburger_buns/model.fbx
+    mesh_format: fbx
+    motion_type: physics_impulse
+    name: hamburger_buns
+    scale_range_m:
+    - 0.1
+    - 0.8
+    source: polyhaven
+  - license: CC0
+    mesh: tools/cache/polyhaven/food_ginger_01/model.fbx
+    mesh_format: fbx
+    motion_type: physics_impulse
+    name: food_ginger_01
+    scale_range_m:
+    - 0.1
+    - 0.8
+    source: polyhaven
+  - license: CC0
+    mesh: tools/cache/polyhaven/Television_01/model.fbx
+    mesh_format: fbx
+    motion_type: physics_impulse
+    name: Television_01
+    scale_range_m:
+    - 0.1
+    - 0.8
+    source: polyhaven
+  - license: CC0
+    mesh: tools/cache/polyhaven/wicker_basket_01/model.fbx
+    mesh_format: fbx
+    motion_type: physics_impulse
+    name: wicker_basket_01
+    scale_range_m:
+    - 0.1
+    - 0.8
+    source: polyhaven
+  - license: CC0
+    mesh: tools/cache/polyhaven/modular_street_seating/model.fbx
+    mesh_format: fbx
+    motion_type: physics_impulse
+    name: modular_street_seating
+    scale_range_m:
+    - 0.1
+    - 0.8
+    source: polyhaven
+  - license: CC0
+    mesh: tools/cache/polyhaven/stationery_supplies/model.fbx
+    mesh_format: fbx
+    motion_type: physics_impulse
+    name: stationery_supplies
+    scale_range_m:
+    - 0.1
+    - 0.8
+    source: polyhaven

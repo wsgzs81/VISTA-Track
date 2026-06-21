@@ -15,6 +15,22 @@ pretrained_networks/
 runs/
 tensorboard/
 wandb/
+cache/
+.cache/
+.pydeps/
+
+# Unreal Engine generated files and local assets
+DerivedDataCache/
+Binaries/
+Intermediate/
+Saved/
+Content/Assets/
+*.uasset
+*.umap
+*.ubulk
+*.uexp
+
+# Model artifacts
 *.pth
 *.pth.tar
 *.pt

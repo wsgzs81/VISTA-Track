@@ -1,0 +1,100 @@
+seed: 73606
+
+dataset:
+  name: SynMVTrack
+  version: v7_3_true_mv_photometric_pilot
+  num_sequences: 2
+  frames_per_sequence: 48
+  frames_per_sequence_weighted_choices:
+    48: 1.0
+  fps: 30
+  views_choices:
+    4: 1.0
+
+render:
+  resolution:
+  - 640
+  - 480
+  resolution_choices:
+  - - 640
+    - 480
+  samples: 12
+  samples_choices:
+  - 12
+  save_rgb: true
+  save_mask: true
+  save_depth: false
+  image_format: jpg
+  mask_format: png
+  identity_priority: true
+  use_view_dependent_backdrop: false
+
+assets:
+  target_index: assets/index/target_index.json
+  scene_index: assets/index/scene_index.json
+  material_index: assets/index/material_index.json
+  hdri_index: assets/index/hdri_index.json
+  min_target_assets: 300
+  min_scene_assets: 100
+
+camera:
+  min_azimuth_separation_deg: 55
+  inside_room_margin_m: 0.35
+  height_range_m:
+  - 0.95
+  - 1.85
+  distance_range_m:
+  - 1.35
+  - 3.35
+  fov_range_deg:
+  - 50
+  - 76
+  elevation_range_deg:
+  - -8
+  - 5
+  require_min_visible_views: 2
+
+trajectory:
+  types:
+    smooth_curve: 0.02
+    abrupt_turn: 0.06
+    stop_and_go: 0.08
+    leave_and_return: 0.10
+    depth_motion: 0.12
+    rotation_heavy: 0.08
+    occluder_crossing: 0.48
+    distractor_crossing: 0.06
+
+attributes:
+  main_challenge_distribution:
+    POC: 0.42
+    FOC: 0.26
+    OV: 0.06
+    BC: 0.18
+    MB: 0.02
+    SV: 0.02
+    LR: 0.01
+    ARC: 0.02
+    DEF: 0.01
+
+quality:
+  min_partial_occlusion_ratio: 0.55
+  max_all_view_blocked_ratio: 0.14
+  enable_render_gate: true
+  gate_frames_per_seq: 12
+  gate_min_mask_pixels: 48
+  gate_color_max_rgb_dist: 72.0
+  gate_bbox_min_iou: 0.58
+  gate_bbox_max_area_ratio: 1.9
+  gate_min_rendered_partial_occ: 0.20
+  gate_max_rendered_all_blocked: 0.18
+
+split:
+  train: 2
+  val: 0
+  test: 0
+  test_challenge_bias:
+  - FOC
+  - OV
+  - BC
+  - POC

@@ -1,0 +1,89 @@
+dataset:
+  name: MVTrackSynth-UE5-Pilot
+  version: 0.1
+  seed: 20260615
+  fps: 30
+  frames_per_sequence: 30
+  num_sequences: 2
+  num_cameras_min: 4
+  num_cameras_max: 4
+  resolution:
+    width: 1280
+    height: 720
+
+visibility:
+  min_visible_cameras: 4
+  min_cameras_with_occlusion: 1
+  max_consecutive_invisible: 30
+  min_visibility_ratio: 0.05
+
+split:
+  train: 0.8
+  val: 0.1
+  test: 0.1
+  split_by_asset: true
+
+output:
+  root: output_pilot_20260615
+  image_format: png
+  depth_format: png
+  mask_format: png
+  annotation_format: json
+  shard_size_sequences: 50
+
+targets:
+  categories:
+    - name: cube
+      mesh: builtin_cube
+      scale_range_m: [0.15, 0.5]
+      motion_type: physics_rolling
+    - name: sphere
+      mesh: builtin_sphere
+      scale_range_m: [0.1, 0.4]
+      motion_type: physics_rolling
+    - name: cylinder
+      mesh: builtin_cylinder
+      scale_range_m: [0.1, 0.45]
+      motion_type: physics_rolling
+    - name: torus
+      mesh: builtin_torus
+      scale_range_m: [0.15, 0.4]
+      motion_type: physics_sliding
+    - name: cone
+      mesh: builtin_cone
+      scale_range_m: [0.15, 0.5]
+      motion_type: physics_rolling
+  num_per_sequence: 1
+
+occluders:
+  enabled: true
+  count_range: [2, 8]
+  categories:
+    - name: wall_segment
+      mesh: builtin_cube
+      scale_range_m: [0.5, 3.0]
+      placement: between_camera_and_target
+    - name: pillar
+      mesh: builtin_cylinder
+      scale_range_m: [0.2, 0.8]
+      placement: random_near_target
+    - name: box_obstacle
+      mesh: builtin_cube
+      scale_range_m: [0.3, 1.5]
+      placement: random_in_scene
+
+physics:
+  gravity: -9.81
+  settlement_time_s: 3.0
+  settlement_linear_vel_threshold: 0.02
+  settlement_angular_vel_threshold: 2.0
+  max_settlement_attempts: 5
+  penetration_check_enabled: true
+
+motion:
+  default_type: physics_impulse
+  impulse_force_range: [0.5, 5.0]
+  trajectory_radius_m: 2.0
+  bounce_enabled: true
+  friction_range: [0.3, 0.8]
+  restitution_range: [0.2, 0.7]

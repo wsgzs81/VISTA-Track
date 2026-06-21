@@ -1,0 +1,65 @@
+dataset:
+  name: MVTrackSynth-UE5-Pilot-v7
+  version: 0.7
+  seed: 20260615
+  fps: 30
+  frames_per_sequence: 30
+  num_sequences: 1
+  num_cameras_min: 4
+  num_cameras_max: 4
+  resolution:
+    width: 1280
+    height: 720
+
+visibility:
+  min_visible_cameras: 4
+  min_cameras_with_occlusion: 1
+  max_consecutive_invisible: 30
+  min_visibility_ratio: 0.05
+
+split:
+  train: 0.8
+  val: 0.1
+  test: 0.1
+  split_by_asset: true
+
+output:
+  root: output_pilot_20260615_v7
+  image_format: png
+  depth_format: png
+  mask_format: png
+  annotation_format: json
+  shard_size_sequences: 50
+
+targets:
+  categories:
+    - name: wicker_basket_01
+      mesh: /Game/Assets/Realistic/wicker_basket_01/model
+      scale_range_m: [0.35, 0.55]
+      motion_type: controlled_orbit
+  num_per_sequence: 1
+
+occluders:
+  enabled: true
+  count_range: [1, 2]
+  categories:
+    - name: small_pillar
+      mesh: builtin_cylinder
+      scale_range_m: [0.15, 0.45]
+      placement: partial_between_camera_and_target
+
+physics:
+  gravity: -9.81
+  settlement_time_s: 0.2
+  settlement_linear_vel_threshold: 0.02
+  settlement_angular_vel_threshold: 2.0
+  max_settlement_attempts: 1
+  penetration_check_enabled: true
+
+motion:
+  default_type: controlled_orbit
+  impulse_force_range: [0.5, 1.0]
+  trajectory_radius_m: 0.8
+  bounce_enabled: false
+  friction_range: [0.3, 0.8]
+  restitution_range: [0.2, 0.7]

@@ -1,0 +1,27 @@
+render:
+  engine: CYCLES
+  device: GPU
+  samples: 64
+  denoising: true
+  resolution_x: 1280
+  resolution_y: 720
+
+  # For faster MVP, can switch to EEVEE
+  # engine: BLENDER_EEVEE
+  # eevee_samples: 64
+
+quality:
+  rgb_format: PNG
+  rgb_color_depth: 8
+  depth_format: OPEN_EXR
+  depth_color_depth: 32
+  mask_format: PNG
+  mask_color_depth: 16
+
+compositor:
+  # Depth output via compositor Z pass
+  depth_enabled: true
+  # Instance index for object segmentation
+  instance_mask_enabled: true
+  # Use material index or object index for mask
+  mask_mode: object_index

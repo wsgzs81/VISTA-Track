@@ -1,0 +1,100 @@
+dataset:
+  name: MVTrackSynth-Hard-v1
+  version: '1.0'
+  seed: 20260616
+  fps: 30
+  frames_per_sequence: 60
+  num_sequences: 8
+  num_cameras_min: 4
+  num_cameras_max: 6
+  resolution:
+    width: 1280
+    height: 720
+  design_goal: 'multi-view single-object tracking hard cases: cross-view identity,
+    occlusion, distractors, scale/viewpoint variation'
+visibility:
+  min_visible_cameras: 2
+  min_cameras_with_occlusion: 1
+  max_consecutive_invisible: 45
+  min_visibility_ratio: 0.03
+split:
+  train: 0.8
+  val: 0.1
+  test: 0.1
+  split_by_asset: true
+output:
+  root: output_hard_v1_tex4_preview_20260616
+  image_format: png
+  depth_format: png
+  mask_format: png
+  annotation_format: json
+  shard_size_sequences: 50
+targets:
+  selection_mode: sequential
+  categories:
+  - name: Television_01
+    mesh: /Game/Assets/Realistic/Television_01/model
+    scale_range_m:
+    - 0.55
+    - 1.25
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit_slow
+  - name: chinese_stool
+    mesh: /Game/Assets/Realistic/chinese_stool/model
+    scale_range_m:
+    - 0.28
+    - 0.85
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit
+  - name: painted_wooden_table
+    mesh: /Game/Assets/Realistic/painted_wooden_table/model
+    scale_range_m:
+    - 0.28
+    - 0.85
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit_slow
+  - name: wicker_basket_01
+    mesh: /Game/Assets/Realistic/wicker_basket_01/model
+    scale_range_m:
+    - 0.28
+    - 0.85
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit
+occluders:
+  enabled: true
+  count_range:
+  - 4
+  - 8
+  policy: view_specific_plus_near_target_clutter
+  categories:
+  - name: view_specific_pillar
+    mesh: builtin_cylinder
+    placement: between_selected_camera_and_target
+  - name: view_specific_panel
+    mesh: builtin_cube
+    placement: between_selected_camera_and_target
+  - name: near_target_clutter
+    mesh: builtin_cube
+    placement: near_target
+distractors:
+  enabled: true
+  similar_target_like_range:
+  - 2
+  - 5
+  background_furniture_range:
+  - 5
+  - 11
+  purpose: identity-preserving tracking under same-class/similar-shape clutter
+rendering:
+  engine: ue5_vulkan
+  lighting: per-sequence synchronized randomized indoor lighting
+  sim2real_effects:
+  - cast_shadows
+  - fog_density_jitter
+  - focal_length_jitter
+  - viewpoint_baseline_jitter
+training_notes:
+  stage_use: Use as second-stage hard multi-view fusion data after real single-view
+    pretraining.
+  avoid: Do not replace real first-stage tracking data with this synthetic set until
+    GMOT/GMTD/GOT-like validation improves.

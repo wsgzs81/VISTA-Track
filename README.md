@@ -2,53 +2,43 @@
 
 **View-Invariant Spatio-Temporal Association for Multi-View Single Object Tracking**
 
-VISTA-Track is a research project for robust multi-view single object tracking, targeting uncalibrated or weakly calibrated real-world scenes. The goal is not to repackage MITracker, but to build a new tracker and training paradigm around stable temporal memory, cross-view target association, and high-quality real/synthetic data.
+VISTA-Track is an open research codebase for robust multi-view single object tracking. The project focuses on strong single-view tracking, confidence-aware temporal memory, geometry-light cross-view association, and synthetic data generation that is useful for real-world tracking.
 
-## Research Goal
+## What This Repository Contains
 
-The long-term goal is to push multi-view single object tracking toward SOTA-level performance and a publishable AAAI/CVPR-style contribution.
+- `vista_track/`: VISTA-Track training components for query-clean temporal learning, confidence-gated dynamic templates, data-mixture recipes, and evaluation helpers.
+- `training/`: current training configs, launch scripts, patches, and implementation notes.
+- `data_generation/`: public UE5 and lightweight synthetic dataset-generation pipelines.
+- `docs/`: project memory, roadmap, and reproducibility notes.
+- `scripts/`: repository maintenance helpers.
 
-Core target:
+Large generated data, checkpoints, pretrained weights, logs, downloaded assets, local credentials, and local environment files are intentionally excluded.
 
-- Single target tracking across multiple synchronized or loosely synchronized views.
-- Robust tracking under occlusion, appearance change, scale change, and cross-view ambiguity.
-- Uncalibrated or weak-calibrated deployment, instead of relying entirely on fixed camera parameters.
-- Strong first-stage single-view tracking, followed by cross-view spatial-temporal fusion.
+## Current Best Direction
 
-## Working Hypothesis
+The current best first-stage recipe is a real-data tracker with query-clean temporal learning:
 
-The first-stage tracker must be reliable before multi-view fusion can help. Our current direction is:
+- Train first on real single-object tracking data.
+- Continue with a GOT-10k, TrackingNet, and LaSOT mixture.
+- Reset temporal query state across unrelated random training batches.
+- Keep temporal state inside a sampled video clip and during inference.
+- Use confidence-gated dynamic templates during inference to adapt appearance while limiting drift.
 
-1. Build a strong single-view foundation on real tracking data.
-2. Add query-clean temporal training to avoid cross-sample memory contamination.
-3. Use confidence-gated dynamic templates to reduce drift.
-4. Add multi-view target association and fusion as a second-stage method.
-5. Generate or curate data only when it improves real-world generalization.
+The current best data-generation direction is a UE5 multi-view generator with synchronized cameras, target motion, realistic materials, occluders, and offline quality checks.
 
-## Current Method Direction
+## Public Release Scope
 
-VISTA-Track will explore three method components:
+This repository contains VISTA-Track code, configs, and data-generation tools. It does not vendor third-party datasets, generated frames, checkpoints, pretrained weights, or third-party baseline source trees.
 
-- **Query-clean temporal learning**: temporal query state should persist inside a sequence, not leak across unrelated training samples.
-- **Confidence-gated template memory**: update dynamic templates only on high-confidence frames to balance adaptation and drift resistance.
-- **View-invariant association**: align target evidence across views with appearance, geometry-free correspondence, and temporal consistency cues.
+## Public Code Policy
 
-## Baselines
+Do not commit:
 
-MITracker is treated as an external baseline and implementation reference, not as the project identity.
-
-Planned comparisons:
-
-- Original MITracker official weights.
-- Clean first-stage baseline trained on real data.
-- VISTA-Track single-view stage.
-- VISTA-Track multi-view fusion stage.
-- Additional modern trackers when evaluation scripts are ready.
-
-## Repository Policy
-
-This repository stores only code, configs, docs, and lightweight scripts. Datasets, checkpoints, pretrained weights, training outputs, and logs must stay outside Git.
-
-## Status
-
-Active research prototype. Current server experiments are training under a separate workspace and will be migrated into this repository once each component is clean and reproducible.
+- datasets
+- generated frames or annotations
+- downloaded assets
+- checkpoints or pretrained weights
+- experiment logs
+- server addresses or local machine paths
+- local credentials
+- local virtual environments

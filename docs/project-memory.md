@@ -6,81 +6,61 @@
 
 Full name: **View-Invariant Spatio-Temporal Association for Multi-View Single Object Tracking**
 
-## Research Positioning
+## Research Objective
 
-This is our own multi-view single object tracking project. MITracker is only a baseline/reference implementation. The project should not be presented as a MITracker fork.
+Build a publishable multi-view single object tracker with:
 
-## Current High-Level Strategy
+- a stable single-view foundation
+- confidence-aware temporal memory
+- view-invariant target association
+- data generation that improves real-world generalization
 
-The first-stage single-view tracker is the foundation. If it is unstable, later multi-view fusion will amplify errors instead of fixing them.
+## Current Best Training Strategy
 
-Current first-stage strategy:
+The first-stage tracker must be strong before multi-view fusion is added.
 
-- Use DINOv2 rather than DINOv3 for now, because earlier experiments showed DINOv3 did not improve this codebase/task.
-- Train on real tracking data: GOT-10k, TrackingNet, and LaSOT.
-- Avoid synthetic data that reduces real-world generalization.
-- Use query-clean temporal training to prevent target-history leakage across unrelated random batches.
-- Use confidence-gated dynamic templates at inference to adapt appearance while limiting drift.
+Current recipe:
 
-## Current Server Context
+- Use a DINOv2-style visual backbone for the active real-data training recipe.
+- Train on GOT-10k, TrackingNet, and LaSOT.
+- Use query-clean temporal training so history tokens persist only inside a sampled sequence, not across unrelated training batches.
+- Use confidence-gated dynamic template updates during inference.
+- Evaluate early checkpoints before committing to long training.
 
-Main server:
+## Current Best Data Strategy
 
-- Host: `root@10.22.17.66`
-- Port: `31102`
-- Work root: `/workspace/home/zhangboqiang`
+Use synthetic data only when it improves validation on real data.
 
-Active legacy training workspace:
+Current generation direction:
 
-- `/workspace/home/zhangboqiang/MITracker`
+- UE5-based multi-view rendering.
+- Synchronized cameras.
+- Target motion rather than camera-only motion.
+- Realistic object colors/materials.
+- Distractors and occluders.
+- Offline QC for bounding boxes, visibility, and cross-view consistency.
 
-This directory is still needed while current experiments are running. Do not delete it until checkpoints, scripts, and results are migrated.
+## Public Release Rules
 
-## Current Active Experiment
+The public repository should contain code, configs, scripts, and documentation only.
 
-Experiment name:
+Do not commit:
 
-- `stable_real_qclean`
+- server addresses or local machine paths
+- datasets or generated frames
+- downloaded assets
+- checkpoints or pretrained weights
+- experiment logs
+- local credentials or virtual environments
 
-Purpose:
+## Evaluation Rule
 
-- Continue from `stable_real_warmup` epoch 20.
-- Train on GOT-10k + TrackingNet + LaSOT.
-- Include query-clean training changes.
-- Prepare stronger first-stage tracker for later multi-view fusion.
+Do not claim SOTA without real evaluation.
 
-Important implementation changes already tested:
+Required checks:
 
-- PyTorch 2.5 compatibility patches.
-- DDP `LOCAL_RANK` compatibility.
-- TrackingNet zip-frame loader.
-- Query-clean Stage1 temporal state handling.
-- Multi-view query assignment fix.
-- Confidence-gated dynamic template inference.
-
-## Data Policy
-
-GitHub must not contain:
-
-- datasets
-- checkpoints
-- pretrained weights
-- tensorboard logs
-- training outputs
-- private credentials
-
-Only code, configs, scripts, and documentation should be committed.
-
-## Research Taste
-
-Avoid shallow engineering-only tricks. The project should emphasize:
-
-- new network structure
-- new training paradigm
-- strong and fair baselines
-- reproducible experiments
-- clear evidence that synthetic or generated data improves real-world tracking
-
-## Near-Term Decision Rule
-
-Evaluate checkpoints at epochs 5, 10, and 15 before deciding whether to continue full training. If the model plateaus or degrades, analyze data mix and template/memory behavior before adding more complexity.
+- AO / AUC where supported
+- success / precision / normalized precision where supported
+- comparison against official or reproduced baselines
+- ablation for each proposed component
+- qualitative failure analysis

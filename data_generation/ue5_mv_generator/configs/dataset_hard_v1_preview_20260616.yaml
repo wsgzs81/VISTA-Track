@@ -1,0 +1,282 @@
+dataset:
+  name: MVTrackSynth-Hard-v1
+  version: '1.0'
+  seed: 20260616
+  fps: 30
+  frames_per_sequence: 90
+  num_sequences: 12
+  num_cameras_min: 4
+  num_cameras_max: 6
+  resolution:
+    width: 1280
+    height: 720
+  design_goal: 'multi-view single-object tracking hard cases: cross-view identity,
+    occlusion, distractors, scale/viewpoint variation'
+visibility:
+  min_visible_cameras: 2
+  min_cameras_with_occlusion: 1
+  max_consecutive_invisible: 45
+  min_visibility_ratio: 0.03
+split:
+  train: 0.8
+  val: 0.1
+  test: 0.1
+  split_by_asset: true
+output:
+  root: output_hard_v1_preview_20260616
+  image_format: png
+  depth_format: png
+  mask_format: png
+  annotation_format: json
+  shard_size_sequences: 50
+targets:
+  selection_mode: sequential
+  categories:
+  - name: BarberShopChair_01
+    mesh: /Game/Assets/Realistic/BarberShopChair_01/model
+    scale_range_m:
+    - 0.28
+    - 0.85
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit
+  - name: GothicCommode_01
+    mesh: /Game/Assets/Realistic/GothicCommode_01/model
+    scale_range_m:
+    - 0.28
+    - 0.85
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit
+  - name: GreenChair_01
+    mesh: /Game/Assets/Realistic/GreenChair_01/model
+    scale_range_m:
+    - 0.28
+    - 0.85
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit
+  - name: Sofa_01
+    mesh: /Game/Assets/Realistic/Sofa_01/model
+    scale_range_m:
+    - 0.55
+    - 1.25
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit_slow
+  - name: Television_01
+    mesh: /Game/Assets/Realistic/Television_01/model
+    scale_range_m:
+    - 0.55
+    - 1.25
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit_slow
+  - name: WoodenTable_03
+    mesh: /Game/Assets/Realistic/WoodenTable_03/model
+    scale_range_m:
+    - 0.28
+    - 0.85
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit_slow
+  - name: chinese_commode
+    mesh: /Game/Assets/Realistic/chinese_commode/model
+    scale_range_m:
+    - 0.28
+    - 0.85
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit
+  - name: chinese_stool
+    mesh: /Game/Assets/Realistic/chinese_stool/model
+    scale_range_m:
+    - 0.28
+    - 0.85
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit
+  - name: coffee_table_round_01
+    mesh: /Game/Assets/Realistic/coffee_table_round_01/model
+    scale_range_m:
+    - 0.28
+    - 0.85
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit_slow
+  - name: folding_wooden_stool
+    mesh: /Game/Assets/Realistic/folding_wooden_stool/model
+    scale_range_m:
+    - 0.28
+    - 0.85
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit
+  - name: food_ginger_01
+    mesh: /Game/Assets/Realistic/food_ginger_01/model
+    scale_range_m:
+    - 0.18
+    - 0.38
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit
+  - name: food_pomegranate_01
+    mesh: /Game/Assets/Realistic/food_pomegranate_01/model
+    scale_range_m:
+    - 0.18
+    - 0.38
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit
+  - name: gallinera_chair
+    mesh: /Game/Assets/Realistic/gallinera_chair/model
+    scale_range_m:
+    - 0.28
+    - 0.85
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit
+  - name: gothic_coffee_table
+    mesh: /Game/Assets/Realistic/gothic_coffee_table/model
+    scale_range_m:
+    - 0.28
+    - 0.85
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit_slow
+  - name: hamburger_buns
+    mesh: /Game/Assets/Realistic/hamburger_buns/model
+    scale_range_m:
+    - 0.18
+    - 0.38
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit
+  - name: mid_century_lounge_chair
+    mesh: /Game/Assets/Realistic/mid_century_lounge_chair/model
+    scale_range_m:
+    - 0.28
+    - 0.85
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit
+  - name: modern_arm_chair_01
+    mesh: /Game/Assets/Realistic/modern_arm_chair_01/model
+    scale_range_m:
+    - 0.28
+    - 0.85
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit
+  - name: modern_wooden_cabinet
+    mesh: /Game/Assets/Realistic/modern_wooden_cabinet/model
+    scale_range_m:
+    - 0.55
+    - 1.25
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit_slow
+  - name: modular_street_seating
+    mesh: /Game/Assets/Realistic/modular_street_seating/model
+    scale_range_m:
+    - 0.55
+    - 1.25
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit
+  - name: painted_wooden_bench
+    mesh: /Game/Assets/Realistic/painted_wooden_bench/model
+    scale_range_m:
+    - 0.28
+    - 0.85
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit_slow
+  - name: painted_wooden_cabinet_02
+    mesh: /Game/Assets/Realistic/painted_wooden_cabinet_02/model
+    scale_range_m:
+    - 0.55
+    - 1.25
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit_slow
+  - name: painted_wooden_chair_01
+    mesh: /Game/Assets/Realistic/painted_wooden_chair_01/model
+    scale_range_m:
+    - 0.28
+    - 0.85
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit
+  - name: painted_wooden_stool
+    mesh: /Game/Assets/Realistic/painted_wooden_stool/model
+    scale_range_m:
+    - 0.28
+    - 0.85
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit
+  - name: painted_wooden_table
+    mesh: /Game/Assets/Realistic/painted_wooden_table/model
+    scale_range_m:
+    - 0.28
+    - 0.85
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit_slow
+  - name: round_wooden_table_01
+    mesh: /Game/Assets/Realistic/round_wooden_table_01/model
+    scale_range_m:
+    - 0.28
+    - 0.85
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit_slow
+  - name: small_wooden_table_01
+    mesh: /Game/Assets/Realistic/small_wooden_table_01/model
+    scale_range_m:
+    - 0.28
+    - 0.85
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit_slow
+  - name: sofa_03
+    mesh: /Game/Assets/Realistic/sofa_03/model
+    scale_range_m:
+    - 0.55
+    - 1.25
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit_slow
+  - name: stationery_supplies
+    mesh: /Game/Assets/Realistic/stationery_supplies/model
+    scale_range_m:
+    - 0.25
+    - 0.75
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit
+  - name: wicker_basket_01
+    mesh: /Game/Assets/Realistic/wicker_basket_01/model
+    scale_range_m:
+    - 0.28
+    - 0.85
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit
+  - name: wooden_picnic_table
+    mesh: /Game/Assets/Realistic/wooden_picnic_table/model
+    scale_range_m:
+    - 0.55
+    - 1.25
+    ground_z_cm: 0.0
+    motion_type: controlled_orbit_slow
+occluders:
+  enabled: true
+  count_range:
+  - 4
+  - 8
+  policy: view_specific_plus_near_target_clutter
+  categories:
+  - name: view_specific_pillar
+    mesh: builtin_cylinder
+    placement: between_selected_camera_and_target
+  - name: view_specific_panel
+    mesh: builtin_cube
+    placement: between_selected_camera_and_target
+  - name: near_target_clutter
+    mesh: builtin_cube
+    placement: near_target
+distractors:
+  enabled: true
+  similar_target_like_range:
+  - 2
+  - 5
+  background_furniture_range:
+  - 5
+  - 11
+  purpose: identity-preserving tracking under same-class/similar-shape clutter
+rendering:
+  engine: ue5_vulkan
+  lighting: per-sequence synchronized randomized indoor lighting
+  sim2real_effects:
+  - cast_shadows
+  - fog_density_jitter
+  - focal_length_jitter
+  - viewpoint_baseline_jitter
+training_notes:
+  stage_use: Use as second-stage hard multi-view fusion data after real single-view
+    pretraining.
+  avoid: Do not replace real first-stage tracking data with this synthetic set until
+    GMOT/GMTD/GOT-like validation improves.

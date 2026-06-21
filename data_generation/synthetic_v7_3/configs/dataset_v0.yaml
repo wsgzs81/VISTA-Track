@@ -1,0 +1,54 @@
+dataset:
+  name: SynMVTrack
+  version: v0
+  num_sequences: 20
+  frames_per_sequence: 300
+  fps: 30
+  views_choices:
+    3: 0.8
+    4: 0.2
+
+render:
+  resolution: [640, 480]
+  samples: 32
+  save_rgb: true
+  save_mask: true
+  save_depth: true
+  image_format: jpg
+  mask_format: png
+
+assets:
+  target_index: assets/index/target_index.json
+  scene_index: assets/index/scene_index.json
+  material_index: assets/index/material_index.json
+  hdri_index: assets/index/hdri_index.json
+
+camera:
+  height_range_m: [0.5, 2.2]
+  distance_range_m: [1.0, 3.5]
+  fov_range_deg: [45, 90]
+  elevation_range_deg: [-45, 10]
+  require_min_visible_views: 2
+
+trajectory:
+  types:
+    smooth_curve: 0.25
+    abrupt_turn: 0.10
+    stop_and_go: 0.10
+    leave_and_return: 0.15
+    depth_motion: 0.10
+    rotation_heavy: 0.10
+    occluder_crossing: 0.15
+    distractor_crossing: 0.05
+
+attributes:
+  main_challenge_distribution:
+    POC: 0.20
+    FOC: 0.15
+    OV: 0.15
+    BC: 0.15
+    MB: 0.10
+    SV: 0.10
+    LR: 0.05
+    ARC: 0.05
+    DEF: 0.05

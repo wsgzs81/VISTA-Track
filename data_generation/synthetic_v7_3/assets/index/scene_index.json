@@ -1,0 +1,3002 @@
+[
+  {
+    "scene_id": "recovery_room_0000",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      3.61,
+      2.61,
+      3.97
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 9,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "carpet",
+      "has_windows": true,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0001",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.51,
+      2.76,
+      4.11
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 8,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "wood_panel",
+      "floor_material": "carpet",
+      "has_windows": false,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0002",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.74,
+      3.05,
+      4.07
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 4,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "wood_oak",
+      "has_windows": true,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_corridor_0003",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "corridor",
+    "room_size_m": [
+      4.66,
+      2.86,
+      1.82
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 0,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "wood_panel",
+      "floor_material": "tile",
+      "has_windows": false,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_open_area_0004",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "open_area",
+    "room_size_m": [
+      5.85,
+      3.0,
+      6.2
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 1,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "carpet",
+      "has_windows": true,
+      "num_windows": 0,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_tabletop_0005",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "tabletop",
+    "room_size_m": [
+      1.8,
+      0.81,
+      1.44
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 5,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "tile",
+      "has_windows": true,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0006",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      3.94,
+      3.19,
+      5.6
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 7,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "wood_oak",
+      "has_windows": true,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0007",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      3.23,
+      2.79,
+      4.51
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 8,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_gray",
+      "floor_material": "tile",
+      "has_windows": false,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0008",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      3.55,
+      3.16,
+      4.53
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 7,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "wood_oak",
+      "has_windows": true,
+      "num_windows": 3,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_corridor_0009",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "corridor",
+    "room_size_m": [
+      6.75,
+      2.8,
+      2.01
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 1,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "carpet",
+      "has_windows": true,
+      "num_windows": 3,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_open_area_0010",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "open_area",
+    "room_size_m": [
+      5.77,
+      3.0,
+      6.43
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 2,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "concrete",
+      "has_windows": true,
+      "num_windows": 3,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_tabletop_0011",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "tabletop",
+    "room_size_m": [
+      1.46,
+      0.8,
+      1.41
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 5,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "carpet",
+      "has_windows": true,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0012",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.56,
+      2.69,
+      4.89
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 9,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "wood_panel",
+      "floor_material": "wood_oak",
+      "has_windows": false,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0013",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.49,
+      2.82,
+      4.8
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 7,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "carpet",
+      "has_windows": false,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0014",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.33,
+      3.08,
+      4.53
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 4,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "concrete",
+      "has_windows": false,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_corridor_0015",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "corridor",
+    "room_size_m": [
+      6.85,
+      2.92,
+      2.16
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 2,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "tile",
+      "has_windows": true,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_open_area_0016",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "open_area",
+    "room_size_m": [
+      6.13,
+      3.0,
+      5.12
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 0,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "concrete",
+      "has_windows": true,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_tabletop_0017",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "tabletop",
+    "room_size_m": [
+      1.32,
+      0.79,
+      0.87
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 4,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_gray",
+      "floor_material": "tile",
+      "has_windows": true,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0018",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.92,
+      2.89,
+      5.16
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 6,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "carpet",
+      "has_windows": false,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0019",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      3.59,
+      2.68,
+      3.86
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 4,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "concrete",
+      "has_windows": false,
+      "num_windows": 3,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0020",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      5.01,
+      2.96,
+      3.5
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 8,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_gray",
+      "floor_material": "concrete",
+      "has_windows": true,
+      "num_windows": 3,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_corridor_0021",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "corridor",
+    "room_size_m": [
+      6.19,
+      2.86,
+      1.44
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 0,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "tile",
+      "has_windows": false,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_open_area_0022",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "open_area",
+    "room_size_m": [
+      6.37,
+      3.0,
+      5.09
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 3,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "wood_panel",
+      "floor_material": "tile",
+      "has_windows": true,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_tabletop_0023",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "tabletop",
+    "room_size_m": [
+      1.78,
+      0.8,
+      1.14
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 2,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_gray",
+      "floor_material": "tile",
+      "has_windows": true,
+      "num_windows": 3,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0024",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.79,
+      2.81,
+      3.25
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 9,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "wood_panel",
+      "floor_material": "wood_oak",
+      "has_windows": false,
+      "num_windows": 3,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0025",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.28,
+      3.06,
+      4.31
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 5,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_gray",
+      "floor_material": "carpet",
+      "has_windows": false,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0026",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.98,
+      3.09,
+      5.31
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 8,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "tile",
+      "has_windows": true,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_corridor_0027",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "corridor",
+    "room_size_m": [
+      6.14,
+      2.98,
+      2.03
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 1,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_gray",
+      "floor_material": "wood_oak",
+      "has_windows": true,
+      "num_windows": 0,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_open_area_0028",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "open_area",
+    "room_size_m": [
+      5.29,
+      3.0,
+      5.57
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 2,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "wood_panel",
+      "floor_material": "carpet",
+      "has_windows": true,
+      "num_windows": 0,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_tabletop_0029",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "tabletop",
+    "room_size_m": [
+      1.21,
+      0.8,
+      1.47
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 1,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "carpet",
+      "has_windows": false,
+      "num_windows": 0,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0030",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.97,
+      3.07,
+      4.41
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 10,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "wood_panel",
+      "floor_material": "concrete",
+      "has_windows": false,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0031",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.95,
+      2.82,
+      4.08
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 5,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "concrete",
+      "has_windows": true,
+      "num_windows": 3,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0032",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      3.54,
+      2.91,
+      5.26
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 8,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "wood_oak",
+      "has_windows": false,
+      "num_windows": 0,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_corridor_0033",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "corridor",
+    "room_size_m": [
+      7.02,
+      2.67,
+      2.08
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 1,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_gray",
+      "floor_material": "wood_oak",
+      "has_windows": true,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_open_area_0034",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "open_area",
+    "room_size_m": [
+      5.4,
+      3.0,
+      6.0
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 2,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "wood_oak",
+      "has_windows": true,
+      "num_windows": 0,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_tabletop_0035",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "tabletop",
+    "room_size_m": [
+      1.68,
+      0.72,
+      1.1
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 2,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "concrete",
+      "has_windows": false,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0036",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      5.15,
+      2.91,
+      4.89
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 4,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "wood_panel",
+      "floor_material": "wood_oak",
+      "has_windows": true,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0037",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      3.76,
+      3.08,
+      4.8
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 8,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "wood_oak",
+      "has_windows": true,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0038",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      5.42,
+      3.18,
+      5.47
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 6,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "wood_panel",
+      "floor_material": "concrete",
+      "has_windows": true,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_corridor_0039",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "corridor",
+    "room_size_m": [
+      6.45,
+      2.66,
+      1.91
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 1,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "concrete",
+      "has_windows": false,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_open_area_0040",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "open_area",
+    "room_size_m": [
+      5.45,
+      3.0,
+      6.26
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 2,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "wood_oak",
+      "has_windows": true,
+      "num_windows": 3,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_tabletop_0041",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "tabletop",
+    "room_size_m": [
+      1.38,
+      0.81,
+      1.06
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 4,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "wood_oak",
+      "has_windows": false,
+      "num_windows": 0,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0042",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.63,
+      2.98,
+      3.76
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 10,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "wood_panel",
+      "floor_material": "tile",
+      "has_windows": true,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0043",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      3.53,
+      3.11,
+      3.3
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 10,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "carpet",
+      "has_windows": true,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0044",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.38,
+      3.15,
+      4.95
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 8,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_gray",
+      "floor_material": "wood_oak",
+      "has_windows": false,
+      "num_windows": 0,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_corridor_0045",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "corridor",
+    "room_size_m": [
+      6.27,
+      2.91,
+      1.72
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 2,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "wood_panel",
+      "floor_material": "concrete",
+      "has_windows": true,
+      "num_windows": 0,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_open_area_0046",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "open_area",
+    "room_size_m": [
+      6.45,
+      3.0,
+      5.1
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 3,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "wood_panel",
+      "floor_material": "tile",
+      "has_windows": true,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_tabletop_0047",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "tabletop",
+    "room_size_m": [
+      1.37,
+      0.79,
+      1.11
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 4,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_gray",
+      "floor_material": "tile",
+      "has_windows": true,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0048",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      3.47,
+      3.11,
+      5.19
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 8,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "wood_oak",
+      "has_windows": false,
+      "num_windows": 0,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0049",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      5.46,
+      3.01,
+      5.16
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 7,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "wood_panel",
+      "floor_material": "concrete",
+      "has_windows": true,
+      "num_windows": 0,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0050",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      3.71,
+      2.97,
+      4.71
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 4,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "wood_panel",
+      "floor_material": "tile",
+      "has_windows": true,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_corridor_0051",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "corridor",
+    "room_size_m": [
+      6.42,
+      3.07,
+      2.15
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 0,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "tile",
+      "has_windows": true,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_open_area_0052",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "open_area",
+    "room_size_m": [
+      6.06,
+      3.0,
+      6.21
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 2,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_gray",
+      "floor_material": "wood_oak",
+      "has_windows": false,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_tabletop_0053",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "tabletop",
+    "room_size_m": [
+      1.73,
+      0.82,
+      1.45
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 4,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "tile",
+      "has_windows": true,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0054",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.91,
+      2.61,
+      4.33
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 6,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "wood_panel",
+      "floor_material": "tile",
+      "has_windows": true,
+      "num_windows": 3,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0055",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      5.25,
+      2.62,
+      3.57
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 8,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "wood_oak",
+      "has_windows": false,
+      "num_windows": 3,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0056",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.67,
+      2.8,
+      3.3
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 10,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "wood_panel",
+      "floor_material": "tile",
+      "has_windows": true,
+      "num_windows": 3,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_corridor_0057",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "corridor",
+    "room_size_m": [
+      6.56,
+      2.87,
+      1.96
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 2,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_gray",
+      "floor_material": "concrete",
+      "has_windows": false,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_open_area_0058",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "open_area",
+    "room_size_m": [
+      5.71,
+      3.0,
+      6.17
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 2,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "concrete",
+      "has_windows": true,
+      "num_windows": 0,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_tabletop_0059",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "tabletop",
+    "room_size_m": [
+      1.34,
+      0.81,
+      1.37
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 3,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "wood_panel",
+      "floor_material": "carpet",
+      "has_windows": false,
+      "num_windows": 3,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0060",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.45,
+      2.69,
+      5.38
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 10,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_gray",
+      "floor_material": "tile",
+      "has_windows": true,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0061",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      3.66,
+      2.83,
+      4.36
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 7,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_gray",
+      "floor_material": "wood_oak",
+      "has_windows": true,
+      "num_windows": 3,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0062",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.9,
+      2.68,
+      3.81
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 5,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "concrete",
+      "has_windows": false,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_corridor_0063",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "corridor",
+    "room_size_m": [
+      6.88,
+      3.09,
+      1.58
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 0,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "wood_panel",
+      "floor_material": "carpet",
+      "has_windows": false,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_open_area_0064",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "open_area",
+    "room_size_m": [
+      5.89,
+      3.0,
+      6.41
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 1,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_gray",
+      "floor_material": "wood_oak",
+      "has_windows": true,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_tabletop_0065",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "tabletop",
+    "room_size_m": [
+      1.58,
+      0.75,
+      1.51
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 2,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "wood_oak",
+      "has_windows": false,
+      "num_windows": 3,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0066",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.43,
+      3.07,
+      5.34
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 4,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "wood_panel",
+      "floor_material": "tile",
+      "has_windows": true,
+      "num_windows": 3,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0067",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      3.33,
+      2.89,
+      4.0
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 4,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "wood_oak",
+      "has_windows": false,
+      "num_windows": 3,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0068",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.09,
+      2.68,
+      5.05
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 5,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "carpet",
+      "has_windows": false,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_corridor_0069",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "corridor",
+    "room_size_m": [
+      7.16,
+      2.73,
+      1.68
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 0,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "wood_panel",
+      "floor_material": "wood_oak",
+      "has_windows": false,
+      "num_windows": 3,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_open_area_0070",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "open_area",
+    "room_size_m": [
+      6.33,
+      3.0,
+      6.19
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 0,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "wood_oak",
+      "has_windows": false,
+      "num_windows": 3,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_tabletop_0071",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "tabletop",
+    "room_size_m": [
+      1.61,
+      0.79,
+      1.0
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 3,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_gray",
+      "floor_material": "carpet",
+      "has_windows": true,
+      "num_windows": 0,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0072",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      3.6,
+      3.04,
+      3.71
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 5,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "carpet",
+      "has_windows": true,
+      "num_windows": 3,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0073",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.89,
+      2.88,
+      3.76
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 9,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "tile",
+      "has_windows": true,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0074",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      3.26,
+      2.98,
+      5.14
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 5,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "carpet",
+      "has_windows": true,
+      "num_windows": 0,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_corridor_0075",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "corridor",
+    "room_size_m": [
+      5.06,
+      3.08,
+      1.66
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 2,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "carpet",
+      "has_windows": false,
+      "num_windows": 0,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_open_area_0076",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "open_area",
+    "room_size_m": [
+      5.74,
+      3.0,
+      5.95
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 0,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "concrete",
+      "has_windows": true,
+      "num_windows": 3,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_tabletop_0077",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "tabletop",
+    "room_size_m": [
+      1.31,
+      0.83,
+      1.54
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 2,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "concrete",
+      "has_windows": true,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0078",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      5.59,
+      2.61,
+      3.27
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 5,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "wood_panel",
+      "floor_material": "carpet",
+      "has_windows": false,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0079",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.01,
+      2.99,
+      4.97
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 4,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "concrete",
+      "has_windows": true,
+      "num_windows": 3,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0080",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      5.41,
+      2.68,
+      3.33
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 4,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "carpet",
+      "has_windows": false,
+      "num_windows": 3,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_corridor_0081",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "corridor",
+    "room_size_m": [
+      7.38,
+      3.08,
+      2.07
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 2,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "tile",
+      "has_windows": false,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_open_area_0082",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "open_area",
+    "room_size_m": [
+      6.27,
+      3.0,
+      5.13
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 3,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_gray",
+      "floor_material": "carpet",
+      "has_windows": false,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_tabletop_0083",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "tabletop",
+    "room_size_m": [
+      1.89,
+      0.85,
+      0.94
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 5,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "tile",
+      "has_windows": true,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0084",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.08,
+      2.62,
+      5.12
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 7,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "wood_panel",
+      "floor_material": "wood_oak",
+      "has_windows": true,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0085",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      5.31,
+      3.11,
+      4.34
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 4,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_gray",
+      "floor_material": "carpet",
+      "has_windows": false,
+      "num_windows": 0,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0086",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      3.81,
+      2.63,
+      4.46
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 5,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "wood_panel",
+      "floor_material": "tile",
+      "has_windows": true,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_corridor_0087",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "corridor",
+    "room_size_m": [
+      4.77,
+      2.94,
+      2.14
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 1,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "wood_panel",
+      "floor_material": "carpet",
+      "has_windows": false,
+      "num_windows": 0,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_open_area_0088",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "open_area",
+    "room_size_m": [
+      5.06,
+      3.0,
+      6.06
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 2,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_gray",
+      "floor_material": "carpet",
+      "has_windows": true,
+      "num_windows": 0,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_tabletop_0089",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "tabletop",
+    "room_size_m": [
+      1.42,
+      0.75,
+      1.02
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 3,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "tile",
+      "has_windows": true,
+      "num_windows": 0,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0090",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.17,
+      2.85,
+      4.51
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 8,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "wood_oak",
+      "has_windows": true,
+      "num_windows": 0,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0091",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      3.22,
+      2.79,
+      4.62
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 6,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "carpet",
+      "has_windows": true,
+      "num_windows": 0,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0092",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.29,
+      2.72,
+      4.58
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 8,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "wood_oak",
+      "has_windows": true,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_corridor_0093",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "corridor",
+    "room_size_m": [
+      4.87,
+      3.06,
+      2.02
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 1,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "tile",
+      "has_windows": false,
+      "num_windows": 3,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_open_area_0094",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "open_area",
+    "room_size_m": [
+      5.84,
+      3.0,
+      6.1
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 0,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "wood_oak",
+      "has_windows": false,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_tabletop_0095",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "tabletop",
+    "room_size_m": [
+      1.29,
+      0.74,
+      0.82
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 1,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "wood_oak",
+      "has_windows": false,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0096",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      5.01,
+      3.03,
+      5.53
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 5,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_gray",
+      "floor_material": "tile",
+      "has_windows": true,
+      "num_windows": 0,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0097",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      3.55,
+      2.94,
+      3.53
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 4,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_gray",
+      "floor_material": "carpet",
+      "has_windows": false,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0098",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.83,
+      2.79,
+      4.63
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 5,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_gray",
+      "floor_material": "wood_oak",
+      "has_windows": true,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_corridor_0099",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "corridor",
+    "room_size_m": [
+      4.9,
+      2.83,
+      1.68
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 1,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "wood_oak",
+      "has_windows": false,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_open_area_0100",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "open_area",
+    "room_size_m": [
+      5.27,
+      3.0,
+      5.16
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 1,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "carpet",
+      "has_windows": true,
+      "num_windows": 0,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_tabletop_0101",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "tabletop",
+    "room_size_m": [
+      1.83,
+      0.8,
+      1.24
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 5,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "concrete",
+      "has_windows": true,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0102",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.11,
+      2.79,
+      4.55
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 9,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "wood_panel",
+      "floor_material": "carpet",
+      "has_windows": true,
+      "num_windows": 0,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0103",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.42,
+      2.7,
+      3.96
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 8,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "carpet",
+      "has_windows": true,
+      "num_windows": 0,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0104",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      5.42,
+      2.65,
+      5.52
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 8,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "wood_oak",
+      "has_windows": true,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_corridor_0105",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "corridor",
+    "room_size_m": [
+      6.38,
+      2.71,
+      1.68
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 2,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "wood_panel",
+      "floor_material": "tile",
+      "has_windows": true,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_open_area_0106",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "open_area",
+    "room_size_m": [
+      5.2,
+      3.0,
+      5.65
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 0,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "concrete",
+      "has_windows": false,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_tabletop_0107",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "tabletop",
+    "room_size_m": [
+      1.36,
+      0.81,
+      0.99
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 5,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_gray",
+      "floor_material": "tile",
+      "has_windows": false,
+      "num_windows": 3,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0108",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.82,
+      2.65,
+      4.09
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 7,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "tile",
+      "has_windows": true,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0109",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.36,
+      2.88,
+      4.9
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 6,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_gray",
+      "floor_material": "wood_oak",
+      "has_windows": true,
+      "num_windows": 3,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0110",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.34,
+      2.63,
+      3.29
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 6,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "tile",
+      "has_windows": false,
+      "num_windows": 0,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_corridor_0111",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "corridor",
+    "room_size_m": [
+      6.37,
+      2.78,
+      2.14
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 2,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "wood_panel",
+      "floor_material": "wood_oak",
+      "has_windows": true,
+      "num_windows": 0,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_open_area_0112",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "open_area",
+    "room_size_m": [
+      6.33,
+      3.0,
+      5.03
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 2,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_gray",
+      "floor_material": "carpet",
+      "has_windows": true,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_tabletop_0113",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "tabletop",
+    "room_size_m": [
+      1.89,
+      0.73,
+      1.1
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 1,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "carpet",
+      "has_windows": false,
+      "num_windows": 3,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0114",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.2,
+      2.73,
+      3.49
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 7,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_white",
+      "floor_material": "concrete",
+      "has_windows": true,
+      "num_windows": 1,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0115",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      4.15,
+      3.03,
+      3.59
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 4,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "wood_panel",
+      "floor_material": "concrete",
+      "has_windows": true,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_room_0116",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "room",
+    "room_size_m": [
+      5.56,
+      3.02,
+      3.4
+    ],
+    "has_table": true,
+    "has_sofa": true,
+    "furniture_count": 6,
+    "clutter_level": "high",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "paint_gray",
+      "floor_material": "concrete",
+      "has_windows": true,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_corridor_0117",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "corridor",
+    "room_size_m": [
+      5.48,
+      2.87,
+      2.03
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 1,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "wood_oak",
+      "has_windows": true,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_open_area_0118",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "open_area",
+    "room_size_m": [
+      5.33,
+      3.0,
+      5.62
+    ],
+    "has_table": false,
+    "has_sofa": false,
+    "furniture_count": 0,
+    "clutter_level": "low",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "wood_panel",
+      "floor_material": "carpet",
+      "has_windows": true,
+      "num_windows": 3,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  },
+  {
+    "scene_id": "recovery_tabletop_0119",
+    "source": "procedural_recovery",
+    "scene_path": null,
+    "future_model_dir": null,
+    "type": "tabletop",
+    "room_size_m": [
+      1.94,
+      0.73,
+      1.34
+    ],
+    "has_table": true,
+    "has_sofa": false,
+    "furniture_count": 2,
+    "clutter_level": "medium",
+    "procedural_params": {
+      "recovery_seed_scene": true,
+      "wall_material": "concrete",
+      "floor_material": "concrete",
+      "has_windows": false,
+      "num_windows": 2,
+      "has_ceiling_light": true
+    },
+    "allowed_for_train": true
+  }
+]
