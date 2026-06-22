@@ -1,0 +1,90 @@
+dataset:
+  name: VISTA-MV-SOT-ICLR-Smoke-v1
+  version: "0.1-smoke"
+  seed: 20260622
+  fps: 30
+  frames_per_sequence: 48
+  num_sequences: 4
+  num_cameras_min: 4
+  num_cameras_max: 5
+  resolution:
+    width: 1280
+    height: 720
+  design_goal: fast smoke test for the uncalibrated benchmark generator before scaling
+
+protocol:
+  public_name: VISTA-MV-SOT
+  setting: uncalibrated_multiview_single_object_tracking
+  expose_calibration_to_methods: false
+
+visibility:
+  min_visible_cameras: 2
+  min_cameras_with_occlusion: 1
+  max_consecutive_invisible: 12
+  min_visibility_ratio: 0.05
+
+split:
+  train: 1.0
+  val: 0.0
+  test: 0.0
+  split_by_asset: true
+
+output:
+  root: /workspace/home/zhangboqiang/mvtrack_gen/output_iclr_uncalib_smoke_v1_20260622
+  image_format: png
+  depth_format: png
+  mask_format: png
+  annotation_format: json
+  shard_size_sequences: 50
+
+targets:
+  selection_mode: sequential
+  categories:
+    - name: Television_01
+      mesh: /Game/Assets/Realistic/Television_01/model
+      scale_range_m: [0.60, 1.05]
+      ground_z_cm: 0.0
+      motion_type: occlusion_crossing
+    - name: wicker_basket_01
+      mesh: /Game/Assets/Realistic/wicker_basket_01/model
+      scale_range_m: [0.35, 0.75]
+      ground_z_cm: 0.0
+      motion_type: stop_go_zigzag
+    - name: painted_wooden_cabinet_02
+      mesh: /Game/Assets/Realistic/painted_wooden_cabinet_02/model
+      scale_range_m: [0.55, 1.00]
+      ground_z_cm: 0.0
+      motion_type: depth_scale_sweep
+    - name: coffee_table_round_01
+      mesh: /Game/Assets/Realistic/coffee_table_round_01/model
+      scale_range_m: [0.45, 0.90]
+      ground_z_cm: 0.0
+      motion_type: crossing_sine
+
+occluders:
+  enabled: true
+  count_range: [3, 5]
+  policy: smoke_view_specific_partial_occlusion
+  categories:
+    - name: view_specific_pillar
+      mesh: builtin_cylinder
+      placement: between_selected_camera_and_target
+    - name: view_specific_panel
+      mesh: builtin_cube
+      placement: between_selected_camera_and_target
+    - name: near_target_clutter
+      mesh: builtin_cube
+      placement: near_target
+
+distractors:
+  enabled: true
+  similar_target_like_range: [1, 2]
+  background_furniture_range: [4, 8]
+
+quality_gate:
+  min_first_visible_views: 2
+  min_sequence_mean_visibility: 0.15
+  max_invisible_annotation_fraction: 0.35
+  max_bbox_bad_ratio: 0.05
+  min_mean_motion_px: 4.0
+  require_occlusion: true

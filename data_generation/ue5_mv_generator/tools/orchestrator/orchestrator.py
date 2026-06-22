@@ -62,7 +62,8 @@ def create_job(idx: int, cfg: Dict, output_root: pathlib.Path = None) -> Dict:
     shard = idx // cfg["output"]["shard_size_sequences"]
     output_root = output_root or get_output_dir(cfg)
     out = str(output_root / "shards" / "shard_{:06d}".format(shard) / "seq_{:06d}".format(idx))
-    return {
+    protocol = cfg.get("protocol", {})
+    job = {
         "job_id": generate_job_id(idx, seed), "sequence_id": "seq_{:06d}".format(idx),
         "sequence_index": idx, "seed": seed + idx,
         "target_category": cat["name"], "target_mesh": cat["mesh"],
@@ -75,6 +76,13 @@ def create_job(idx: int, cfg: Dict, output_root: pathlib.Path = None) -> Dict:
         "num_occluders": n_occ, "occluder_categories": occ_cats,
         "output_dir": out, "status": "pending", "retry_count": 0, "max_retries": 3,
     }
+    if protocol:
+        job["protocol"] = {
+            "public_name": protocol.get("public_name", "VISTA-MV-SOT"),
+            "setting": protocol.get("setting", "uncalibrated_multiview_single_object_tracking"),
+            "expose_calibration_to_methods": bool(protocol.get("expose_calibration_to_methods", False)),
+        }
+    return job
 
 
 def save_jobs(jobs: List[Dict], path: str):
@@ -199,7 +207,9 @@ def run_generation(cfg: Dict, dry_run: bool = False, force_regenerate: bool = Fa
     if dry_run:
         print("[Orchestrator] DRY RUN")
         for j in pending[:5]:
-            print("  {}: {} scale={}".format(j["job_id"], j["target_category"], j["target_scale_m"]))
+            print("  {}: {} scale={} motion={}".format(
+                j["job_id"], j["target_category"], j["target_scale_m"],
+                j.get("target_motion_type", "unknown")))
         return
 
     ok_count = 0

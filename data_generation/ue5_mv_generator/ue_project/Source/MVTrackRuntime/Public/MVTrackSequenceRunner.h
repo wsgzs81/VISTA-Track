@@ -46,6 +46,7 @@ protected:
     float SimulationTime = 0.0f;
     bool bRunning = false;
     bool bFailed = false;
+    bool bCaptureWarmupDone = false;
     FRandomStream RNG;
     TArray<FMVTrackFrameAnnotation> AllAnnotations;
     double StartTimeSeconds = 0.0;

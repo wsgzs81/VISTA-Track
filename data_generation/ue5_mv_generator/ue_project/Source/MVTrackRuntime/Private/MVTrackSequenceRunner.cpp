@@ -425,14 +425,53 @@ void AMVTrackSequenceRunner::RunFrame()
 {
     const FMVTrackJobManifest& M = JobConfig->Manifest;
 
-    // Move target along a non-circular path so fixed cameras see clear
-    // horizontal and depth displacement instead of a simple orbit.
-    float T = (float)CurrentFrame / (float)TotalFrames;
-    float Angle = T * 2.0f * PI;
-    float PathX = FMath::Sin(Angle * 1.35f + 0.35f) * 150.0f
-        + FMath::Sin(Angle * 2.7f) * 35.0f;
-    float PathY = FMath::Sin(Angle * 0.85f + 1.1f) * 115.0f
-        + FMath::Cos(Angle * 2.1f) * 28.0f;
+    // Fixed-camera MV-SOT needs the target, not the virtual cameras, to create
+    // the tracking challenge. MotionType is configured per category/job so the
+    // public benchmark can expose interpretable challenge subsets.
+    const float T = TotalFrames > 1 ? (float)CurrentFrame / (float)(TotalFrames - 1) : 0.0f;
+    const float Phase = (float)(M.Seed % 997) / 997.0f * 2.0f * PI;
+    const float Angle = T * 2.0f * PI + Phase;
+    const FString Motion = M.MotionType.ToLower();
+    float PathX = 0.0f;
+    float PathY = 0.0f;
+    float YawDeg = FMath::RadiansToDegrees(Angle);
+
+    if (Motion.Contains(TEXT("crossing")))
+    {
+        PathX = FMath::Lerp(-185.0f, 185.0f, T);
+        PathY = FMath::Sin(T * 2.0f * PI + Phase) * 92.0f;
+        YawDeg = FMath::Lerp(-35.0f, 215.0f, T) + FMath::Sin(Angle * 2.0f) * 10.0f;
+    }
+    else if (Motion.Contains(TEXT("depth")) || Motion.Contains(TEXT("scale")))
+    {
+        PathX = FMath::Sin(Angle * 0.75f) * 80.0f;
+        PathY = FMath::Lerp(-190.0f, 190.0f, 0.5f + 0.5f * FMath::Sin(Angle));
+        YawDeg = 35.0f + FMath::Sin(Angle * 1.4f) * 72.0f;
+    }
+    else if (Motion.Contains(TEXT("stop")) || Motion.Contains(TEXT("zigzag")))
+    {
+        const float Segment = FMath::FloorToFloat(T * 5.0f);
+        const float Local = FMath::Frac(T * 5.0f);
+        const float Hold = (Local < 0.22f) ? 0.0f : (Local - 0.22f) / 0.78f;
+        const float Dir = ((int32)Segment % 2 == 0) ? 1.0f : -1.0f;
+        PathX = Dir * FMath::Lerp(35.0f, 180.0f, Hold);
+        PathY = FMath::Sin((Segment + Hold) * PI * 0.82f + Phase) * 145.0f;
+        YawDeg = Dir * 65.0f + Hold * 95.0f;
+    }
+    else if (Motion.Contains(TEXT("occlusion")))
+    {
+        PathX = FMath::Sin(Angle * 1.15f) * 170.0f;
+        PathY = FMath::Cos(Angle * 0.85f + 0.4f) * 150.0f;
+        YawDeg = FMath::Sin(Angle * 1.6f) * 115.0f;
+    }
+    else
+    {
+        PathX = FMath::Sin(Angle * 1.35f + 0.35f) * 150.0f
+            + FMath::Sin(Angle * 2.7f) * 35.0f;
+        PathY = FMath::Sin(Angle * 0.85f + 1.1f) * 115.0f
+            + FMath::Cos(Angle * 2.1f) * 28.0f;
+        YawDeg = FMath::RadiansToDegrees(Angle) + FMath::Sin(Angle * 1.7f) * 24.0f;
+    }
 
     if (TargetController->TargetActor)
     {
@@ -441,14 +480,12 @@ void AMVTrackSequenceRunner::RunFrame()
             : TargetController->TargetActor->GetActorLocation().Z;
         FVector Goal(PathX, PathY, GroundZ);
         TargetController->TargetActor->SetActorLocation(Goal, false);
-        TargetController->TargetActor->SetActorRotation(FRotator(
-            0.0f,
-            Angle * 57.2958f + FMath::Sin(Angle * 1.7f) * 24.0f,
-            0.0f));
+        TargetController->TargetActor->SetActorRotation(FRotator(0.0f, YawDeg, 0.0f));
         if (CurrentFrame == 0)
         {
-            SeqLog(FString::Printf(TEXT("Frame0 forced target loc=%s"),
-                *TargetController->TargetActor->GetActorLocation().ToString()));
+            SeqLog(FString::Printf(TEXT("Frame0 target loc=%s motion=%s"),
+                *TargetController->TargetActor->GetActorLocation().ToString(),
+                *M.MotionType));
         }
     }
 
@@ -459,6 +496,20 @@ void AMVTrackSequenceRunner::RunFrame()
     TArray<bool> Occluded = CameraManager->CheckOcclusion(TargetPos, 20.0f);
     TArray<FMVTrackMaskStats> MaskStats;
     MaskStats.SetNum(M.NumCameras);
+
+    if (!bCaptureWarmupDone)
+    {
+        for (int32 i = 0; i < M.NumCameras; i++)
+        {
+            USceneCaptureComponent2D* CC = CameraManager->GetCaptureComp(i);
+            if (CC)
+            {
+                CC->CaptureScene();
+            }
+        }
+        bCaptureWarmupDone = true;
+        SeqLog(TEXT("Completed one discard capture before frame export"));
+    }
 
     for (int32 i = 0; i < M.NumCameras; i++)
     {
