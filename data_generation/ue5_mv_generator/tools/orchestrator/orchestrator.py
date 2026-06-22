@@ -59,6 +59,10 @@ def create_job(idx: int, cfg: Dict, output_root: pathlib.Path = None) -> Dict:
     occ_range = occ.get("count_range", [2, 8])
     n_occ = rng.randint(*occ_range)
     occ_cats = [rng.choice(occ.get("categories", [{"name": "wall"}]))["name"] for _ in range(n_occ)]
+    transient_occ_range = occ.get("transient_occlusion_view_range", occ.get("full_occlusion_view_range", [0, 0]))
+    n_transient_occ = rng.randint(*transient_occ_range) if transient_occ_range else 0
+    max_transient_occ = max(0, n_cam - int(cfg.get("visibility", {}).get("min_visible_cameras", 2)))
+    n_transient_occ = min(n_transient_occ, max_transient_occ)
     shard = idx // cfg["output"]["shard_size_sequences"]
     output_root = output_root or get_output_dir(cfg)
     out = str(output_root / "shards" / "shard_{:06d}".format(shard) / "seq_{:06d}".format(idx))
@@ -74,6 +78,11 @@ def create_job(idx: int, cfg: Dict, output_root: pathlib.Path = None) -> Dict:
         "fps": cfg["dataset"]["fps"],
         "resolution": [cfg["dataset"]["resolution"]["width"], cfg["dataset"]["resolution"]["height"]],
         "num_occluders": n_occ, "occluder_categories": occ_cats,
+        "num_transient_occlusion_views": n_transient_occ,
+        "transient_occlusion_size_m": float(occ.get("transient_occlusion_size_m", occ.get("full_occlusion_size_m", 1.15))),
+        "transient_occlusion_distance_fraction": float(occ.get("transient_occlusion_distance_fraction", occ.get("full_occlusion_distance_fraction", 0.45))),
+        "transient_occlusion_duration_fraction": float(occ.get("transient_occlusion_duration_fraction", 0.35)),
+        "transient_occlusion_travel_m": float(occ.get("transient_occlusion_travel_m", 2.6)),
         "output_dir": out, "status": "pending", "retry_count": 0, "max_retries": 3,
     }
     if protocol:
@@ -207,9 +216,10 @@ def run_generation(cfg: Dict, dry_run: bool = False, force_regenerate: bool = Fa
     if dry_run:
         print("[Orchestrator] DRY RUN")
         for j in pending[:5]:
-            print("  {}: {} scale={} motion={}".format(
+            print("  {}: {} scale={} motion={} transient_occ_views={}".format(
                 j["job_id"], j["target_category"], j["target_scale_m"],
-                j.get("target_motion_type", "unknown")))
+                j.get("target_motion_type", "unknown"),
+                j.get("num_transient_occlusion_views", 0)))
         return
 
     ok_count = 0

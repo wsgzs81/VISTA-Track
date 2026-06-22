@@ -58,7 +58,26 @@ Before export, a generated sequence should pass offline QC:
 - Mean target center motion is non-trivial.
 - Bboxes are mask-derived and mostly inside reasonable image bounds.
 - The sequence contains occlusion but is not dominated by invisibility.
+- At least one challenge view should contain a transient occlusion event:
+  visible target frames, a short contiguous invisible or heavily occluded span,
+  and later recovery in the same view.
 - Multi-view cameras remain fixed while the target moves.
 
 This makes the benchmark suitable for evaluating uncalibrated view association,
 cross-view target correspondence, and multi-view temporal fusion.
+
+## Transient Occlusion Challenge
+
+The preferred hard case is not a permanently blocked camera. Instead, VISTA
+generates view-specific foreground events such as a person-like panel or pillar
+crossing between one camera and the moving target. A valid transient occlusion
+view should be useful before and after the event, while forcing the tracker to
+borrow temporal or cross-view evidence during the occluded interval.
+
+Challenge labels:
+
+- `transient_full_occlusion`: a view has visible frames before a contiguous
+  invisible interval and visible frames again afterward.
+- `heavy_occlusion`: the target is still partially visible but strongly masked.
+- `view_dropout`: a stricter stress subset where one view is invisible for most
+  frames; this is not the default desired mode for realistic training data.

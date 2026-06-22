@@ -132,6 +132,11 @@ def derive_challenges(view_stats: List[Dict]) -> List[str]:
             labels.add("heavy_occlusion")
         if stats["invisible_frames"] > 0:
             labels.add("out_of_view_or_full_occlusion")
+        if stats.get("transient_full_occlusion", False):
+            labels.add("transient_full_occlusion")
+        if stats["invisible_frames"] >= max(1, int(0.45 * stats.get("frame_count", 0))):
+            labels.add("view_dropout")
+            labels.add("full_view_occlusion")
         if stats["mean_motion_px"] >= 18.0:
             labels.add("fast_motion")
         if stats["area_ratio_max"] > 0 and stats["area_ratio_min"] > 0:
@@ -152,6 +157,25 @@ def assert_no_calibration(obj, path: str = "root") -> None:
     elif isinstance(obj, list):
         for i, value in enumerate(obj):
             assert_no_calibration(value, f"{path}[{i}]")
+
+
+def has_transient_invisible_event(visible_flags: List[int], min_run: int = 3) -> bool:
+    """Detect visible -> invisible run -> visible recovery within one view."""
+    seen_visible_before = False
+    run = 0
+    seen_event = False
+    for flag in visible_flags:
+        if flag:
+            if seen_event:
+                return True
+            seen_visible_before = True
+            run = 0
+            continue
+        if seen_visible_before:
+            run += 1
+            if run >= min_run:
+                seen_event = True
+    return False
 
 
 def export_sequence(
@@ -189,6 +213,7 @@ def export_sequence(
         gt_lines = []
         visible_lines = []
         occlusion_lines = []
+        visible_flags = []
         centers = []
         areas = []
         occluded_frames = 0
@@ -207,6 +232,7 @@ def export_sequence(
             ann = load_ann(seq_dir, cam_id, frame_idx)
             bbox = bbox_from_ann(ann)
             visible = visible_from_ann(ann, bbox)
+            visible_flags.append(visible)
             gt_lines.append("{:.3f},{:.3f},{:.3f},{:.3f}".format(*bbox))
             visible_lines.append(str(visible))
 
@@ -235,8 +261,10 @@ def export_sequence(
 
         stats = {
             "view_id": view_id,
+            "frame_count": len(visible_lines),
             "visible_frames": sum(int(v) for v in visible_lines),
             "invisible_frames": invisible_frames,
+            "transient_full_occlusion": has_transient_invisible_event(visible_flags),
             "occluded_frames": occluded_frames,
             "heavy_occlusion_frames": heavy_occlusion_frames,
             "mean_motion_px": sum(motion) / len(motion) if motion else 0.0,
@@ -273,6 +301,11 @@ def export_sequence(
             "mean_visible_frames_per_view": sum(s["visible_frames"] for s in view_stats) / max(1, len(view_stats)),
             "mean_motion_px": sum(s["mean_motion_px"] for s in view_stats) / max(1, len(view_stats)),
             "views_with_occlusion": sum(1 for s in view_stats if s["occluded_frames"] > 0),
+            "views_with_transient_full_occlusion": sum(1 for s in view_stats if s.get("transient_full_occlusion", False)),
+            "views_with_full_occlusion": sum(
+                1 for s in view_stats
+                if s["invisible_frames"] >= max(1, int(0.45 * s.get("frame_count", 0)))
+            ),
         },
     }
     assert_no_calibration(public_meta)

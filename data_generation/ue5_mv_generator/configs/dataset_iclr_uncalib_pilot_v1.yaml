@@ -77,7 +77,12 @@ targets:
 occluders:
   enabled: true
   count_range: [3, 6]
-  policy: view_specific_partial_occlusion_with_near_target_clutter
+  transient_occlusion_view_range: [1, 2]
+  transient_occlusion_size_m: 2.6
+  transient_occlusion_distance_fraction: 0.24
+  transient_occlusion_duration_fraction: 0.42
+  transient_occlusion_travel_m: 1.8
+  policy: view_specific_transient_occlusion_with_near_target_clutter
   categories:
     - name: view_specific_pillar
       mesh: builtin_cylinder
@@ -107,8 +112,8 @@ rendering:
 
 quality_gate:
   min_first_visible_views: 2
-  min_sequence_mean_visibility: 0.15
-  max_invisible_annotation_fraction: 0.35
+  min_sequence_mean_visibility: 0.10
+  max_invisible_annotation_fraction: 0.45
   max_bbox_bad_ratio: 0.05
   min_mean_motion_px: 4.0
   require_occlusion: true

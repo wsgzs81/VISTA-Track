@@ -50,6 +50,24 @@ def bbox_bad(bbox: Tuple[float, float, float, float], width: int, height: int) -
     return False
 
 
+def has_transient_invisible_event(flags: List[int], min_run: int) -> bool:
+    seen_visible_before = False
+    run = 0
+    seen_event = False
+    for flag in flags:
+        if flag:
+            if seen_event:
+                return True
+            seen_visible_before = True
+            run = 0
+            continue
+        if seen_visible_before:
+            run += 1
+            if run >= min_run:
+                seen_event = True
+    return False
+
+
 def find_sequences(root: pathlib.Path) -> List[pathlib.Path]:
     return sorted(p for p in root.glob("*/*") if (p / "meta.json").exists())
 
@@ -60,6 +78,10 @@ def check_sequence(
     height: int,
     min_initial_visible_views: int,
     max_bad_bbox_ratio: float,
+    min_full_occlusion_views: int,
+    full_occlusion_invisible_ratio: float,
+    min_transient_occlusion_views: int,
+    min_transient_invisible_run: int,
 ) -> Tuple[bool, Dict]:
     meta = read_json(seq_dir / "meta.json")
     errors = []
@@ -81,6 +103,9 @@ def check_sequence(
     total_boxes = 0
     bad_boxes = 0
     total_visible = 0
+    full_occlusion_views = 0
+    transient_occlusion_views = 0
+    per_view_invisible_ratios = []
     for view_idx in range(view_count):
         view_dir = seq_dir / f"view_{view_idx:03d}"
         if not view_dir.exists():
@@ -100,6 +125,14 @@ def check_sequence(
             errors.append(f"IMAGE_COUNT_MISMATCH:view_{view_idx:03d}:{image_count}/{frame_count}")
         if vis and vis[0].strip() == "1":
             first_visible += 1
+        invisible_count = sum(1 for item in vis if item.strip() != "1")
+        flags = [1 if item.strip() == "1" else 0 for item in vis]
+        invisible_ratio = invisible_count / len(vis) if vis else 1.0
+        per_view_invisible_ratios.append(invisible_ratio)
+        if invisible_ratio >= full_occlusion_invisible_ratio:
+            full_occlusion_views += 1
+        if has_transient_invisible_event(flags, min_transient_invisible_run):
+            transient_occlusion_views += 1
         for line, visible_line in zip(gt, vis):
             bbox = parse_bbox(line)
             visible = visible_line.strip() == "1"
@@ -116,6 +149,10 @@ def check_sequence(
         errors.append(f"HIGH_BAD_BBOX_RATIO:{bad_ratio:.3f}")
     if total_visible == 0:
         errors.append("NO_VISIBLE_BOXES")
+    if full_occlusion_views < min_full_occlusion_views:
+        errors.append(f"LOW_FULL_OCCLUSION_VIEWS:{full_occlusion_views}")
+    if transient_occlusion_views < min_transient_occlusion_views:
+        errors.append(f"LOW_TRANSIENT_OCCLUSION_VIEWS:{transient_occlusion_views}")
 
     return not errors, {
         "sequence": seq_dir.name,
@@ -123,6 +160,9 @@ def check_sequence(
         "view_count": view_count,
         "source_start_frame": meta.get("source_start_frame"),
         "first_visible_views": first_visible,
+        "full_occlusion_views": full_occlusion_views,
+        "transient_occlusion_views": transient_occlusion_views,
+        "max_view_invisible_ratio": max(per_view_invisible_ratios) if per_view_invisible_ratios else 0.0,
         "bad_bbox_ratio": bad_ratio,
         "errors": errors,
         "ok": not errors,
@@ -136,6 +176,12 @@ def main() -> None:
     parser.add_argument("--height", type=int, default=720)
     parser.add_argument("--min-initial-visible-views", type=int, default=2)
     parser.add_argument("--max-bad-bbox-ratio", type=float, default=0.10)
+    parser.add_argument("--min-full-occlusion-views", type=int, default=0,
+                        help="Require this many views to be invisible for most frames.")
+    parser.add_argument("--full-occlusion-invisible-ratio", type=float, default=0.45)
+    parser.add_argument("--min-transient-occlusion-views", type=int, default=0,
+                        help="Require this many views to have visible-invisible-visible temporal occlusion.")
+    parser.add_argument("--min-transient-invisible-run", type=int, default=3)
     parser.add_argument("--report-json", default=None)
     args = parser.parse_args()
 
@@ -150,6 +196,10 @@ def main() -> None:
             height=args.height,
             min_initial_visible_views=args.min_initial_visible_views,
             max_bad_bbox_ratio=args.max_bad_bbox_ratio,
+            min_full_occlusion_views=args.min_full_occlusion_views,
+            full_occlusion_invisible_ratio=args.full_occlusion_invisible_ratio,
+            min_transient_occlusion_views=args.min_transient_occlusion_views,
+            min_transient_invisible_run=args.min_transient_invisible_run,
         )
         report.append(item)
         if ok:
@@ -162,6 +212,12 @@ def main() -> None:
             sum(r["bad_bbox_ratio"] for r in report) / len(report)))
         print("Mean first visible views: {:.2f}".format(
             sum(r["first_visible_views"] for r in report) / len(report)))
+        print("Mean full-occlusion views: {:.2f}".format(
+            sum(r["full_occlusion_views"] for r in report) / len(report)))
+        print("Mean transient-occlusion views: {:.2f}".format(
+            sum(r["transient_occlusion_views"] for r in report) / len(report)))
+        print("Mean max view invisible ratio: {:.2f}".format(
+            sum(r["max_view_invisible_ratio"] for r in report) / len(report)))
     if args.report_json:
         pathlib.Path(args.report_json).parent.mkdir(parents=True, exist_ok=True)
         pathlib.Path(args.report_json).write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")

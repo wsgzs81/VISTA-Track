@@ -109,6 +109,11 @@ void AMVTrackSequenceRunner::InitializeFromJob()
         JobConfig->Manifest.ResolutionX = 1280;
         JobConfig->Manifest.ResolutionY = 720;
         JobConfig->Manifest.NumOccluders = 3;
+        JobConfig->Manifest.NumTransientOcclusionViews = 1;
+        JobConfig->Manifest.TransientOcclusionSizeM = 1.15f;
+        JobConfig->Manifest.TransientOcclusionDistanceFraction = 0.45f;
+        JobConfig->Manifest.TransientOcclusionDurationFraction = 0.35f;
+        JobConfig->Manifest.TransientOcclusionTravelM = 2.6f;
         JobConfig->Manifest.OutputDir = TEXT("/tmp/mvtrack_probe");
         JobConfig->Manifest.MotionType = TEXT("physics_impulse");
         JobConfig->bValid = true;
@@ -136,6 +141,34 @@ void AMVTrackSequenceRunner::InitializeFromJob()
             JobConfig->Manifest.NumFrames = Root->GetIntegerField(TEXT("num_frames"));
             JobConfig->Manifest.FPS = Root->GetIntegerField(TEXT("fps"));
             JobConfig->Manifest.NumOccluders = Root->GetIntegerField(TEXT("num_occluders"));
+            int32 TransientOccViews = 0;
+            if (Root->TryGetNumberField(TEXT("num_transient_occlusion_views"), TransientOccViews)
+                || Root->TryGetNumberField(TEXT("num_full_occlusion_views"), TransientOccViews))
+            {
+                JobConfig->Manifest.NumTransientOcclusionViews = TransientOccViews;
+            }
+            double TransientOccSizeM = 1.15;
+            if (Root->TryGetNumberField(TEXT("transient_occlusion_size_m"), TransientOccSizeM)
+                || Root->TryGetNumberField(TEXT("full_occlusion_size_m"), TransientOccSizeM))
+            {
+                JobConfig->Manifest.TransientOcclusionSizeM = (float)TransientOccSizeM;
+            }
+            double TransientOccDistFrac = 0.45;
+            if (Root->TryGetNumberField(TEXT("transient_occlusion_distance_fraction"), TransientOccDistFrac)
+                || Root->TryGetNumberField(TEXT("full_occlusion_distance_fraction"), TransientOccDistFrac))
+            {
+                JobConfig->Manifest.TransientOcclusionDistanceFraction = (float)TransientOccDistFrac;
+            }
+            double TransientOccDuration = 0.35;
+            if (Root->TryGetNumberField(TEXT("transient_occlusion_duration_fraction"), TransientOccDuration))
+            {
+                JobConfig->Manifest.TransientOcclusionDurationFraction = (float)TransientOccDuration;
+            }
+            double TransientOccTravelM = 2.6;
+            if (Root->TryGetNumberField(TEXT("transient_occlusion_travel_m"), TransientOccTravelM))
+            {
+                JobConfig->Manifest.TransientOcclusionTravelM = (float)TransientOccTravelM;
+            }
             JobConfig->Manifest.OutputDir = Root->GetStringField(TEXT("output_dir"));
             JobConfig->Manifest.MotionType = Root->GetStringField(TEXT("target_motion_type"));
             const TArray<TSharedPtr<FJsonValue>>* ResArr;
@@ -339,11 +372,17 @@ void AMVTrackSequenceRunner::SpawnRoomOccluders(const FVector& TargetPos)
     UStaticMesh* Cube = LoadObject<UStaticMesh>(UStaticMesh::StaticClass(), TEXT("/Engine/BasicShapes/Cube"));
     UStaticMesh* Cyl = LoadObject<UStaticMesh>(UStaticMesh::StaticClass(), TEXT("/Engine/BasicShapes/Cylinder"));
 
-    const int32 ViewSpecificOccluders = FMath::Clamp(MJob.NumOccluders / 2, 0, FMath::Min(2, Cams.Num()));
+    TransientOccluders.Empty();
+    const int32 FirstChallengeCamera = FMath::Min(2, Cams.Num());
+    const int32 ChallengeCameraCount = FMath::Max(0, Cams.Num() - FirstChallengeCamera);
+    const int32 RequestedTransientOcclusion = FMath::Clamp(MJob.NumTransientOcclusionViews, 0, ChallengeCameraCount);
+    const int32 RemainingChallengeCameras = FMath::Max(0, ChallengeCameraCount - RequestedTransientOcclusion);
+    const int32 ViewSpecificOccluders = FMath::Clamp(MJob.NumOccluders / 2, 0, FMath::Min(2, RemainingChallengeCameras));
     for (int32 i = 0; i < ViewSpecificOccluders; ++i)
     {
-        if (!Cams.IsValidIndex(i) || !Cams[i].CameraActor) continue;
-        const FVector CamPos = Cams[i].CameraActor->GetActorLocation();
+        const int32 CamIndex = FirstChallengeCamera + RequestedTransientOcclusion + i;
+        if (!Cams.IsValidIndex(CamIndex) || !Cams[CamIndex].CameraActor) continue;
+        const FVector CamPos = Cams[CamIndex].CameraActor->GetActorLocation();
         const FVector Ray = TargetPos - CamPos;
         const FVector Dir = Ray.GetSafeNormal();
         FVector Right = FVector::CrossProduct(FVector::UpVector, Dir).GetSafeNormal();
@@ -365,6 +404,58 @@ void AMVTrackSequenceRunner::SpawnRoomOccluders(const FVector& TargetPos)
             FRotator(0, OccRNG.FRandRange(0.0f, 360.0f), 0),
             Scale,
             700 + i * 11);
+    }
+
+    int32 TransientOcclusionActors = 0;
+    for (int32 i = 0; i < RequestedTransientOcclusion; ++i)
+    {
+        const int32 CamIndex = FirstChallengeCamera + i;
+        if (!Cams.IsValidIndex(CamIndex) || !Cams[CamIndex].CameraActor) continue;
+
+        const FVector CamPos = Cams[CamIndex].CameraActor->GetActorLocation();
+        const FVector Ray = TargetPos - CamPos;
+        const FVector Dir = Ray.GetSafeNormal();
+        FVector Right = FVector::CrossProduct(FVector::UpVector, Dir).GetSafeNormal();
+        if (Right.IsNearlyZero()) { Right = FVector::RightVector; }
+        FVector Up = FVector::CrossProduct(Dir, Right).GetSafeNormal();
+        if (Up.IsNearlyZero()) { Up = FVector::UpVector; }
+
+        const float DistFrac = FMath::Clamp(MJob.TransientOcclusionDistanceFraction, 0.16f, 0.70f);
+        FVector Pos = CamPos + Ray * DistFrac;
+        Pos += Right * OccRNG.FRandRange(-150.0f, -115.0f);
+        Pos += Up * OccRNG.FRandRange(-6.0f, 12.0f);
+        Pos.Z = FMath::Clamp(TargetPos.Z + OccRNG.FRandRange(50.0f, 95.0f), 45.0f, 185.0f);
+
+        const FRotator Rot = UKismetMathLibrary::FindLookAtRotation(Pos, CamPos);
+        AStaticMeshActor* Actor = GetWorld()->SpawnActor<AStaticMeshActor>(Pos, Rot, P);
+        if (!Actor) continue;
+        UStaticMeshComponent* MC = Actor->GetStaticMeshComponent();
+        if (Cube) { MC->SetStaticMesh(Cube); }
+        const FVector TargetExtent = TargetController->GetTargetWorldBounds().GetExtent();
+        const float TargetMaxExtentM = FMath::Max3(TargetExtent.X, TargetExtent.Y, TargetExtent.Z) / 100.0f;
+        const float Size = FMath::Max(MJob.TransientOcclusionSizeM, TargetMaxExtentM * 3.25f);
+        MC->SetWorldScale3D(FVector(
+            0.04f,
+            Size * OccRNG.FRandRange(0.90f, 1.20f),
+            Size * OccRNG.FRandRange(1.10f, 1.45f)));
+        MC->SetCollisionProfileName(TEXT("BlockAll"));
+        MVTrackMaterials::ApplySemanticMaterial(
+            MC, Actor, FString::Printf(TEXT("transient_occluder_cam_%03d"), CamIndex),
+            MJob.Seed + 900 + i * 17, MVTrackMaterials::EMaterialRole::Occluder);
+
+        FMVTrackTransientOccluder Event;
+        Event.Actor = Actor;
+        Event.CameraIndex = CamIndex;
+        Event.DistanceFraction = DistFrac;
+        const float Duration = FMath::Clamp(MJob.TransientOcclusionDurationFraction, 0.18f, 0.55f);
+        const float CenterT = OccRNG.FRandRange(0.45f, 0.55f);
+        Event.StartT = FMath::Clamp(CenterT - Duration * 0.5f, 0.18f, 0.46f);
+        Event.EndT = FMath::Clamp(CenterT + Duration * 0.5f, Event.StartT + 0.22f, 0.82f);
+        Event.TravelCm = FMath::Max(80.0f, MJob.TransientOcclusionTravelM * 100.0f);
+        Event.SideSign = (i % 2 == 0) ? 1.0f : -1.0f;
+        Event.ZCenterCm = Pos.Z - TargetPos.Z;
+        TransientOccluders.Add(Event);
+        TransientOcclusionActors++;
     }
 
     const int32 NearOccluders = FMath::Clamp(MJob.NumOccluders - ViewSpecificOccluders, 0, 2);
@@ -400,11 +491,57 @@ void AMVTrackSequenceRunner::SpawnRoomOccluders(const FVector& TargetPos)
         MC->SetCollisionProfileName(TEXT("BlockAll"));
     }
 
-    SeqLog(FString::Printf(TEXT("Hard scene: %d view occluders, %d near occluders, %d similar distractors"),
-        ViewSpecificOccluders, NearOccluders, SimilarDistractors));
+    SeqLog(FString::Printf(TEXT("Hard scene: %d view occluders, %d transient occluders, %d near occluders, %d similar distractors"),
+        ViewSpecificOccluders, TransientOcclusionActors, NearOccluders, SimilarDistractors));
 }
 
 void AMVTrackSequenceRunner::ApplyOccluderMaterials() {}
+
+void AMVTrackSequenceRunner::UpdateTransientOccluders(const FVector& TargetPos)
+{
+    const FMVTrackJobManifest& MJob = JobConfig->Manifest;
+    const TArray<FMVTrackCameraData>& Cams = CameraManager->GetCameras();
+    const float T = TotalFrames > 1 ? (float)CurrentFrame / (float)(TotalFrames - 1) : 0.0f;
+
+    for (FMVTrackTransientOccluder& Event : TransientOccluders)
+    {
+        if (!Event.Actor || !Cams.IsValidIndex(Event.CameraIndex) || !Cams[Event.CameraIndex].CameraActor)
+        {
+            continue;
+        }
+
+        const FVector CamPos = Cams[Event.CameraIndex].CameraActor->GetActorLocation();
+        const FVector Ray = TargetPos - CamPos;
+        const FVector Dir = Ray.GetSafeNormal();
+        FVector Right = FVector::CrossProduct(FVector::UpVector, Dir).GetSafeNormal();
+        if (Right.IsNearlyZero()) { Right = FVector::RightVector; }
+        FVector Up = FVector::CrossProduct(Dir, Right).GetSafeNormal();
+        if (Up.IsNearlyZero()) { Up = FVector::UpVector; }
+
+        const float Duration = FMath::Max(Event.EndT - Event.StartT, 0.01f);
+        const float LocalT = FMath::Clamp((T - Event.StartT) / Duration, 0.0f, 1.0f);
+        float CenterOffset = 0.0f;
+        if (LocalT < 0.35f)
+        {
+            CenterOffset = FMath::Lerp(-0.70f * Event.TravelCm, 0.0f, LocalT / 0.35f);
+        }
+        else if (LocalT > 0.65f)
+        {
+            CenterOffset = FMath::Lerp(0.0f, 0.70f * Event.TravelCm, (LocalT - 0.65f) / 0.35f);
+        }
+        const float PrePostOffset = (T < Event.StartT)
+            ? -1.35f * Event.TravelCm
+            : (T > Event.EndT ? 1.35f * Event.TravelCm : CenterOffset);
+
+        FVector Pos = CamPos + Ray * FMath::Clamp(Event.DistanceFraction, 0.16f, 0.70f);
+        Pos += Right * Event.SideSign * PrePostOffset;
+        Pos += Up * FMath::Sin(LocalT * PI) * 6.0f;
+        Pos.Z = FMath::Clamp(TargetPos.Z + Event.ZCenterCm, 35.0f, 170.0f);
+
+        Event.Actor->SetActorLocation(Pos, false);
+        Event.Actor->SetActorRotation(UKismetMathLibrary::FindLookAtRotation(Pos, CamPos));
+    }
+}
 
 void AMVTrackSequenceRunner::Tick(float DeltaTime)
 {
@@ -490,6 +627,7 @@ void AMVTrackSequenceRunner::RunFrame()
     }
 
     FVector TargetPos = TargetController->GetTargetTransform().GetLocation();
+    UpdateTransientOccluders(TargetPos);
     // Keep cameras fixed after setup. Multi-view SOT should make the object move
     // through each view instead of letting virtual cameras track it every frame.
 

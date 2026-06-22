@@ -11,6 +11,19 @@ class UMVTrackCameraManager;
 class UMVTrackTargetController;
 class UMVTrackAnnotationWriter;
 class UMVTrackRenderWriter;
+class AStaticMeshActor;
+
+struct FMVTrackTransientOccluder
+{
+    AStaticMeshActor* Actor = nullptr;
+    int32 CameraIndex = 0;
+    float DistanceFraction = 0.45f;
+    float StartT = 0.25f;
+    float EndT = 0.65f;
+    float TravelCm = 260.0f;
+    float SideSign = 1.0f;
+    float ZCenterCm = 85.0f;
+};
 
 UCLASS()
 class MVTRACKRUNTIME_API AMVTrackSequenceRunner : public AActor
@@ -26,6 +39,7 @@ protected:
     void InitializeFromJob();
     void BuildRoomScene();
     void SpawnRoomOccluders(const FVector& TargetPos);
+    void UpdateTransientOccluders(const FVector& TargetPos);
     void ApplyOccluderMaterials();
     void SetupEnvironment();
     void SpawnFloor();
@@ -48,6 +62,7 @@ protected:
     bool bFailed = false;
     bool bCaptureWarmupDone = false;
     FRandomStream RNG;
+    TArray<FMVTrackTransientOccluder> TransientOccluders;
     TArray<FMVTrackFrameAnnotation> AllAnnotations;
     double StartTimeSeconds = 0.0;
 };

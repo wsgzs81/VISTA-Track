@@ -117,6 +117,11 @@ struct FMVTrackJobManifest
     UPROPERTY() int32 ResolutionX = 1280;
     UPROPERTY() int32 ResolutionY = 720;
     UPROPERTY() int32 NumOccluders = 4;
+    UPROPERTY() int32 NumTransientOcclusionViews = 0;
+    UPROPERTY() float TransientOcclusionSizeM = 1.15f;
+    UPROPERTY() float TransientOcclusionDistanceFraction = 0.45f;
+    UPROPERTY() float TransientOcclusionDurationFraction = 0.35f;
+    UPROPERTY() float TransientOcclusionTravelM = 2.6f;
     UPROPERTY() FString OutputDir;
     UPROPERTY() FString MotionType;
 };
